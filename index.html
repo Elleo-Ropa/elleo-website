@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" className="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Elleo Group</title>
+  <meta name="description"
+    content="We are an Australian owned F&B company with a steady growing profile in the country." />
+  <link rel="icon" type="image/svg+xml"
+    href="https://www.sushia.com.au/wp-content/uploads/2026/01/Elleo-Group-Symbel.svg" />
+
+  <!-- Preload Lottie Animation -->
+  <link rel="preload" href="https://lottie.host/0c5c72b4-1e47-4a13-a4a1-d09963897550/xQ6pfsJcDa.lottie" as="fetch"
+    crossorigin="anonymous">
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Tailwind -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            elleo: {
+              light: '#a09fe2',
+              dark: '#273851',
+              cream: '#ffffff',
+            }
+          },
+          fontFamily: {
+            serif: ['"Libre Baskerville"', 'serif'],
+            sans: ['"Montserrat"', 'sans-serif'],
+          },
+          container: {
+            center: true,
+            padding: '2rem',
+            screens: {
+              '2xl': '1500px',
+            },
+          },
+        }
+      }
+    }
+  </script>
+  <style>
+    html {
+      scroll-padding-top: 70px;
+      /* Offset for fixed header */
+    }
+
+    body {
+      background-color: #ffffff;
+      color: #273851;
+    }
+
+    /* Hide scrollbar for marquee */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+  <script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@^19.2.3",
+    "react-dom/": "https://esm.sh/react-dom@^19.2.3/",
+    "react/": "https://esm.sh/react@^19.2.3/",
+    "lucide-react": "https://esm.sh/lucide-react@^0.562.0",
+    "framer-motion": "https://esm.sh/framer-motion@^12.23.26",
+    "react-fast-marquee": "https://esm.sh/react-fast-marquee@^1.6.5"
+  }
+}
+</script>
+  <script src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.7.1/dist/dotlottie-wc.js" type="module"></script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+
+<body>
+  <div id="root"></div>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>
