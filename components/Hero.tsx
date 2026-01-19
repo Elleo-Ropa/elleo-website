@@ -39,12 +39,12 @@ const Hero: React.FC = () => {
       {/* Updated to use max-w-[1400px] specifically for Hero section as requested */}
       <div className="container mx-auto max-w-[1400px] px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center h-full relative z-10">
 
-        {/* Left Column: Text Content */}
+        {/* Left Column: Text Content (Order 2 on mobile, Order 1 on desktop) */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col justify-center text-center lg:text-left pt-10 lg:pt-0"
+          className="flex flex-col justify-center text-center lg:text-left pt-10 lg:pt-0 order-2 lg:order-1"
         >
           {/* 
             Headline updated:
@@ -52,8 +52,22 @@ const Hero: React.FC = () => {
               that comes with md:text-6xl and lg:text-7xl in Tailwind.
           */}
           <h1 className="font-serif text-5xl md:text-6xl lg:text-[3.8rem] text-elleo-dark leading-[1.2] md:leading-[1.2] lg:leading-[1.2] mb-8 tracking-tighter">
-            For a better tomorrow <br />
-            a <span className="italic text-elleo-light">healthier</span> change
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              className="block"
+            >
+              For a better tomorrow
+            </motion.span>
+            <motion.span
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
+              className="block"
+            >
+              a <span className="italic text-elleo-light">healthier</span> change
+            </motion.span>
           </h1>
           {/* Updated max-width to 50rem (max-w-[50rem]) as requested */}
           {/* Updated line-height to 2rem (leading-[2rem]) and forced it with md:leading-[2rem] to override md:text-xl default */}
@@ -61,20 +75,20 @@ const Hero: React.FC = () => {
             Our vision is to provide our customers with a healthier choice by offering distinctive nutritious food prepared with premium quality ingredients
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center lg:items-start">
             <a href="#brands" className="px-8 py-4 bg-elleo-dark text-white rounded-full font-sans font-bold text-[15px] tracking-wide hover:bg-elleo-light transition-colors duration-300">
               View Brands
             </a>
           </div>
         </motion.div>
 
-        {/* Right Column: Lottie Animation */}
+        {/* Right Column: Lottie Animation (Order 1 on mobile, Order 2 on desktop) */}
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           // Removed delay: 0.2 and reduced duration for faster appearance
           transition={{ duration: 0.5, delay: 0 }}
-          className="relative h-[400px] lg:h-[600px] w-full flex items-center justify-center lg:justify-end pointer-events-none"
+          className="relative h-[400px] lg:h-[600px] w-full flex items-center justify-center lg:justify-end pointer-events-none order-1 lg:order-2"
         >
           <div className="w-full h-full md:w-[110%] md:h-[110%] scale-110 lg:translate-x-10 mix-blend-multiply">
             <DotLottie

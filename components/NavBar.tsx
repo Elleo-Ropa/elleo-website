@@ -31,7 +31,7 @@ const NavBar: React.FC = () => {
           <div className={`relative z-50 transition-all duration-500 ease-in-out ${isScrolled ? 'w-[150px]' : 'w-[170px]'}`}>
             <a href="#">
               <img
-                src={LOGO_LIGHT}
+                src={isMenuOpen ? "https://www.sushia.com.au/wp-content/uploads/2026/01/Elleo-Group-Logo-W.svg" : LOGO_LIGHT}
                 alt="Elleo Group"
                 className="w-full h-auto transition-opacity duration-300"
               />
@@ -65,7 +65,7 @@ const NavBar: React.FC = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className={`md:hidden z-50 p-2 text-elleo-dark`}
+            className={`md:hidden z-50 p-2 ${isMenuOpen ? 'text-white' : 'text-elleo-dark'} transition-colors duration-300`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -83,7 +83,7 @@ const NavBar: React.FC = () => {
             transition={{ type: "tween", duration: 0.4 }}
             className="fixed inset-0 bg-elleo-dark z-40 flex flex-col justify-center items-center"
           >
-            <div className="flex flex-col space-y-8 text-center text-white font-serif text-3xl">
+            <div className="flex flex-col space-y-8 text-center text-white font-sans text-3xl">
               {menuItems.map((item) => (
                 item === 'Contact' ? (
                   <button
@@ -92,7 +92,7 @@ const NavBar: React.FC = () => {
                       setIsMenuOpen(false);
                       window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
                     }}
-                    className="hover:text-elleo-light transition-colors bg-transparent border-none p-0 font-serif text-3xl text-white cursor-pointer"
+                    className="hover:text-elleo-light transition-colors bg-transparent border-none p-0 font-sans text-3xl text-white cursor-pointer"
                   >
                     {item}
                   </button>
@@ -110,7 +110,7 @@ const NavBar: React.FC = () => {
               <a
                 href="#contact"
                 onClick={() => setIsMenuOpen(false)}
-                className="bg-white text-elleo-dark px-8 py-3 rounded-full font-sans font-bold text-xl hover:bg-elleo-light hover:text-white transition-colors"
+                className="bg-elleo-light text-white px-8 py-3 rounded-full font-sans font-bold text-xl hover:bg-white hover:text-elleo-dark transition-colors"
               >
                 Get in Touch
               </a>

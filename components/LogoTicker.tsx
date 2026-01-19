@@ -25,30 +25,29 @@ const LogoTicker: React.FC = () => {
   return (
     <section className="py-24 bg-white text-elleo-dark border-t border-gray-50">
       <div className="container mx-auto px-6 mb-12 text-center">
-         {/* Font size updated to text-[2.5rem] */}
-         <h2 className="font-serif text-[2.5rem] text-elleo-dark">Our Partnerships</h2>
-         <p className="font-sans text-gray-500 mt-2">Collaborating with industry leaders</p>
+        {/* Font size updated to text-[2.5rem] */}
+        <h2 className="font-serif text-3xl md:text-[2.5rem] text-elleo-dark">Our Partnerships</h2>
+        <p className="font-sans text-gray-500 mt-2">Collaborating with industry leaders</p>
       </div>
-      
+
       <Marquee gradient={true} gradientColor="white" speed={45} className="py-6 overflow-hidden">
         {PARTNERS.map((logo, i) => {
-           // Check if specific logos need to be larger based on user request
-           const isLarger = logo.includes('lend-lease') || 
-                            logo.includes('stockland') || 
-                            logo.includes('cbus-super') || 
-                            logo.includes('ispt-super-property');
-           
-           return (
-            <div key={i} className="mx-8 md:mx-12 flex items-center justify-center group h-20 w-32 md:w-48">
-               <img 
-                 src={logo} 
-                 alt={`Partner ${i + 1}`} 
-                 className={`${
-                   isLarger 
-                     ? 'max-h-12 md:max-h-16 max-w-[130px] md:max-w-[200px]' // Larger size for specific logos
-                     : 'max-h-8 md:max-h-12 max-w-[100px] md:max-w-[160px]'  // Standard size for others
-                 } w-auto h-auto object-contain grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300 ease-out`} 
-               />
+          // Check if specific logos need to be larger based on user request
+          const isLarger = logo.includes('lend-lease') ||
+            logo.includes('stockland') ||
+            logo.includes('cbus-super') ||
+            logo.includes('ispt-super-property');
+
+          return (
+            <div key={i} className="mx-4 md:mx-8 flex items-center justify-center group h-20 w-32 md:w-48">
+              <img
+                src={logo}
+                alt={`Partner ${i + 1}`}
+                className={`${isLarger
+                  ? 'max-h-12 md:max-h-16 max-w-[130px] md:max-w-[200px]' // Larger size for specific logos
+                  : 'max-h-8 md:max-h-12 max-w-[100px] md:max-w-[160px]'  // Standard size for others
+                  } w-auto h-auto object-contain grayscale opacity-50 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-300 ease-out`}
+              />
             </div>
           );
         })}

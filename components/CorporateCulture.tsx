@@ -47,7 +47,7 @@ const CorporateCulture: React.FC = () => {
         </motion.div>
 
         {/* Grid Layout: Changed to grid-cols-5 on large screens to fit in one line */}
-        <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
           {CULTURE_ITEMS.map((item, index) => {
             const Icon = item.icon;
             return (

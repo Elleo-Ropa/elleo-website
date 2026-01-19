@@ -11,11 +11,11 @@ const Brands: React.FC = () => {
       <div className="container mx-auto px-6 relative">
         <div id="brands" className="absolute -top-[90px] left-0 invisible" />
         <div className="mb-12 text-center md:text-left">
-          <h2 className="font-serif text-[3rem] text-elleo-dark tracking-[-0.02em]">Our Brands</h2>
+          <h2 className="font-serif text-4xl md:text-[3rem] text-elleo-dark tracking-[-0.02em]">Our Brands</h2>
           <p className="font-sans text-gray-500">Discover our culinary experiences</p>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-6 h-[700px] w-full">
+        <div className="flex flex-col md:flex-row gap-6 h-[850px] md:h-[700px] w-full">
           {BRANDS.map((brand) => {
             const isActive = activeId === brand.id;
 
@@ -26,7 +26,7 @@ const Brands: React.FC = () => {
                 transition={{ type: "spring", stiffness: 120, damping: 20 }}
                 onMouseEnter={() => setActiveId(brand.id)}
                 onClick={() => setActiveId(brand.id)}
-                className={`relative rounded-[2rem] overflow-hidden cursor-pointer group ${isActive ? 'flex-[3]' : 'flex-[1]'
+                className={`relative rounded-[1.3rem] md:rounded-[2rem] overflow-hidden cursor-pointer group ${isActive ? 'flex-[3]' : 'flex-[1]'
                   }`}
                 style={{
                   '--brand-color': brand.color,
@@ -54,7 +54,7 @@ const Brands: React.FC = () => {
                   </div>
 
                   {/* Bottom Content Area */}
-                  <div className={`relative z-10 w-full h-full flex flex-col ${isActive ? 'justify-end' : 'justify-end items-center'}`}>
+                  <div className={`relative z-10 w-full h-full flex flex-col ${isActive ? 'justify-end' : 'justify-center items-center'}`}>
                     {isActive ? (
                       /* Active State Content */
                       <motion.div
@@ -66,23 +66,23 @@ const Brands: React.FC = () => {
                         {/* Title - Colors updated based on brand, Margin bottom reduced to 0.5rem (mb-2) */}
                         <motion.h2
                           layout="position"
-                          className="font-serif leading-none mb-2 text-3xl md:text-[45px] text-[var(--brand-color)] tracking-[-0.02em]"
+                          className="font-serif leading-none mb-2 text-3xl md:text-[45px] text-[var(--brand-color)] tracking-[-0.02em] text-left"
                         >
                           {brand.name}
                         </motion.h2>
 
                         {/* Flex container to position Text left and Button right */}
-                        <div className="flex flex-col md:flex-row items-end justify-between gap-6">
+                        <div className="flex flex-row items-end justify-between gap-4">
 
                           {/* Left side: Description & Tags */}
                           <div className="max-w-md">
                             {/* Description */}
-                            <p className="font-sans text-sm md:text-base text-white/90 leading-relaxed drop-shadow-sm mb-4">
+                            <p className="font-sans text-xs md:text-base text-white/90 leading-relaxed drop-shadow-sm">
                               {brand.description}
                             </p>
 
                             {/* Bottom Tags - Updated: tracking-[0.3px] added */}
-                            <div className="hidden md:flex flex-wrap gap-2">
+                            <div className="hidden md:flex flex-wrap gap-2 mt-4">
                               {brand.features.map(f => (
                                 <span key={f} className="text-xs text-[var(--brand-color)] border border-[var(--brand-color)] px-3 py-1.5 rounded-lg font-semibold tracking-[0.3px]">
                                   {f}
@@ -101,7 +101,7 @@ const Brands: React.FC = () => {
                             whileTap={{ scale: 0.98 }}
                           >
                             <div className="
-                                px-10 py-4 
+                                px-5 py-2 md:px-10 md:py-4 
                                 bg-[var(--brand-color)] text-white 
                                 hover:bg-elleo-dark 
                                 rounded-full
@@ -109,7 +109,8 @@ const Brands: React.FC = () => {
                                 shadow-lg
                                 font-bold font-sans uppercase tracking-widest text-xs md:text-sm
                               ">
-                              VISIT WEBSITE
+                              <span className="md:hidden">VISIT</span>
+                              <span className="hidden md:inline">VISIT WEBSITE</span>
                             </div>
                           </motion.a>
                         </div>
@@ -118,12 +119,12 @@ const Brands: React.FC = () => {
                       /* Inactive State Content - Show Brand Logo at bottom */
                       <motion.div
                         layout="position"
-                        className="flex items-center justify-center pb-8"
+                        className="flex items-center justify-center"
                       >
                         <img
                           src={brand.logo}
                           alt={brand.name}
-                          className="w-[150px] h-auto"
+                          className="w-[120px] md:w-[150px] h-auto"
                         />
                       </motion.div>
                     )}
