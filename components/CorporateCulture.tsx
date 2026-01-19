@@ -71,7 +71,7 @@ const CorporateCulture: React.FC = () => {
 
                   {/* Text Content - whitespace-pre-line enables \n line breaks */}
                   {/* Font changed to Montserrat (font-sans) and weight to 600 (font-semibold) */}
-                  <h3 className="font-sans font-semibold text-[1rem] text-elleo-dark group-hover:text-elleo-light transition-colors duration-300 leading-snug whitespace-pre-line">
+                  <h3 className="font-sans font-semibold text-[0.9rem] md:text-[0.9rem] text-elleo-dark group-hover:text-elleo-light transition-colors duration-300 leading-snug whitespace-pre-line">
                     {item.title}
                   </h3>
                 </div>

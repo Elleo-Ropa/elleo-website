@@ -12,7 +12,7 @@ const Contact: React.FC = () => {
 
       <div className="container mx-auto px-3 md:px-6 relative z-10">
         {/* Glassmorphism Card: Updated for a more premium, stylish look */}
-        <div className="max-w-[52rem] mx-auto bg-white/60 backdrop-blur-xl rounded-[1.5rem] md:rounded-[3rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] px-3 py-16 md:p-16 border border-white">
+        <div className="max-w-[52rem] mx-auto bg-white/60 backdrop-blur-xl rounded-[1.5rem] md:rounded-[3rem] shadow-[0_8px_30px_rgb(0,0,0,0.04)] px-5 py-16 md:p-16 border border-white">
           <div className="text-center mb-12">
             <h2 className="font-serif text-4xl md:text-[3rem] text-elleo-dark mb-4 tracking-[-0.02em]">Get in Touch</h2>
             <p className="font-sans text-gray-500 font-medium">We'd love to hear from you. Send us a message.</p>

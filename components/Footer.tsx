@@ -18,7 +18,7 @@ const Footer: React.FC = () => {
 
             {/* Main Footer Content: Logo - Info Columns - Symbol */}
             {/* Updated gap from lg:gap-20 to lg:gap-[10rem] as requested */}
-            <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-12 lg:gap-[7rem] mb-[5rem] text-center lg:text-left">
+            <div className="flex flex-col lg:flex-row items-center lg:items-start justify-between gap-16 lg:gap-[7rem] mb-[5rem] text-center lg:text-left">
 
               {/* Left: Logo */}
               <div className="flex-shrink-0 pt-0 mx-auto lg:mx-0">
@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
               </div>
 
               {/* Middle: 3-Column Info Section */}
-              <div className="flex-grow grid grid-cols-1 md:grid-cols-3 gap-10 md:gap-12 font-sans w-full">
+              <div className="flex-grow grid grid-cols-1 md:grid-cols-3 gap-14 md:gap-12 font-sans w-full">
 
                 {/* Column 1: HEAD OFFICE */}
                 <div className="space-y-5">
