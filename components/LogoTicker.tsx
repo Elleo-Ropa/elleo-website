@@ -23,9 +23,8 @@ const PARTNERS = [
 
 const LogoTicker: React.FC = () => {
   return (
-    <section className="py-24 bg-white text-elleo-dark border-t border-gray-50">
+    <section className="py-20 md:py-24 bg-white text-elleo-dark border-t border-gray-50">
       <div className="container mx-auto px-6 mb-12 text-center">
-        {/* Font size updated to text-[2.5rem] */}
         <h2 className="font-serif text-3xl md:text-[2.5rem] text-elleo-dark">Our Partnerships</h2>
         <p className="font-sans text-gray-500 mt-2">Collaborating with industry leaders</p>
       </div>

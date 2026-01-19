@@ -70,7 +70,16 @@ const Stats: React.FC = () => {
                 <Counter value={stat.value} />
               </div>
               {/* Font size changed from text-lg to text-base (1rem) */}
-              <div className="font-sans font-bold text-[10px] md:text-[14px] text-elleo-light text-base mb-1 tracking-widest uppercase">{stat.label}</div>
+              {/* Font size and line wrapping adjusted for mobile */}
+              <div className="font-sans font-bold text-[11px] md:text-[14px] text-elleo-light text-base mb-1 tracking-widest uppercase text-center leading-tight">
+                {stat.label === "Total Branches" ? (
+                  <>Total<br className="md:hidden" /> Branches</>
+                ) : stat.label === "Monthly Visitors" ? (
+                  <>Monthly<br className="md:hidden" /> Visitors</>
+                ) : (
+                  stat.label
+                )}
+              </div>
             </motion.div>
           ))}
         </div>

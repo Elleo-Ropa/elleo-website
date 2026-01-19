@@ -26,7 +26,7 @@ const VisionMission: React.FC = () => {
 
   return (
     // Updated padding-top to pt-40 (10rem) as requested
-    <section className="pt-40 pb-24 bg-white overflow-hidden relative">
+    <section className="pt-20 pb-20 md:pt-40 md:pb-24 bg-white overflow-hidden relative">
       <div className="container mx-auto px-3 md:px-6">
         {/* Main Background Card */}
         <div className="relative w-full rounded-[2rem] md:rounded-[3rem] overflow-hidden min-h-[700px] flex items-center bg-gradient-to-br from-white via-[#f5f3ff] to-[#ede9fe]">

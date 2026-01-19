@@ -7,7 +7,7 @@ const Brands: React.FC = () => {
   const [activeId, setActiveId] = useState<string>(BRANDS[1].id); // Default to middle item
 
   return (
-    <section className="py-32 bg-white min-h-screen flex flex-col justify-center">
+    <section className="py-20 md:py-32 bg-white min-h-screen flex flex-col justify-center">
       <div className="container mx-auto px-3 md:px-6 relative">
         <div id="brands" className="absolute -top-[90px] left-0 invisible" />
         <div className="mb-12 text-center md:text-left">

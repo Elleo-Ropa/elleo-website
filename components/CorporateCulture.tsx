@@ -27,11 +27,11 @@ const CULTURE_ITEMS = [
 
 const CorporateCulture: React.FC = () => {
   return (
-    <section id="culture" className="py-24 bg-white relative overflow-hidden">
+    <section id="culture" className="py-20 md:py-24 bg-white relative overflow-hidden">
       {/* Background Decor - Subtle Circle */}
       <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gray-50 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
 
-      <div className="container mx-auto px-3 mb:px-6 relative z-10">
+      <div className="container mx-auto px-3 md:px-6 relative z-10">
 
         {/* Header */}
         <motion.div
