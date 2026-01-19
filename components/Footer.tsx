@@ -75,10 +75,6 @@ const Footer: React.FC = () => {
             {/* Bottom Bar */}
             <div className="border-t border-white/10 pt-[2rem] flex flex-col md:flex-row justify-between items-center text-center gap-4 text-sm font-sans opacity-50 tracking-wider">
               <p>© {new Date().getFullYear()} Elleo Group Holdings. <br className="md:hidden" /> All rights reserved.</p>
-              <div className="flex gap-10 mt-6 md:mt-0">
-                <a href="#" className="hover:text-white transition-colors uppercase">Privacy Policy</a>
-                <a href="#" className="hover:text-white transition-colors uppercase">Terms of Service</a>
-              </div>
             </div>
           </div>
         </div>

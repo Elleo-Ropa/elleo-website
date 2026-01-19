@@ -26,7 +26,7 @@ const NavBar: React.FC = () => {
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/70 backdrop-blur-md py-4 shadow-lg' : 'bg-transparent py-6'
           }`}
       >
-        <div className="container mx-auto px-6 flex justify-between items-center">
+        <div className="container mx-auto  pl-6 pr-3 md:px-6 flex justify-between items-center">
           {/* Logo Container - Resizes on scroll */}
           <div className={`relative z-50 transition-all duration-500 ease-in-out ${isScrolled ? 'w-[120px] md:w-[150px]' : 'w-[140px] md:w-[170px]'}`}>
             <a href="#">
