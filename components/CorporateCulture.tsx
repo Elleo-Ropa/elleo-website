@@ -31,7 +31,7 @@ const CorporateCulture: React.FC = () => {
       {/* Background Decor - Subtle Circle */}
       <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-gray-50 rounded-full blur-[120px] -translate-x-1/2 -translate-y-1/2 pointer-events-none" />
 
-      <div className="container mx-auto px-6 relative z-10">
+      <div className="container mx-auto px-3 mb:px-6 relative z-10">
 
         {/* Header */}
         <motion.div
@@ -47,7 +47,7 @@ const CorporateCulture: React.FC = () => {
         </motion.div>
 
         {/* Grid Layout: Changed to grid-cols-5 on large screens to fit in one line */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-4">
           {CULTURE_ITEMS.map((item, index) => {
             const Icon = item.icon;
             return (
@@ -61,7 +61,7 @@ const CorporateCulture: React.FC = () => {
               >
                 {/* Updated background to gradient: from subtle purple at bottom to white at top */}
                 {/* Border removed as requested */}
-                <div className="h-full bg-gradient-to-t from-[#f5f3ff] to-white rounded-3xl p-8 hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] transition-all duration-300 flex flex-col items-center justify-center text-center">
+                <div className="h-full bg-gradient-to-t from-[#f5f3ff] to-white rounded-3xl p-4 hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] transition-all duration-300 flex flex-col items-center justify-center text-center">
 
                   {/* Icon Circle - Increased size from w-14/h-14 to w-20/h-20 */}
                   <div className="w-20 h-20 rounded-2xl bg-elleo-light/10 flex items-center justify-center mb-6 group-hover:bg-elleo-light group-hover:scale-110 transition-all duration-300 shrink-0">

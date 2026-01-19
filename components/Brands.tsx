@@ -8,7 +8,7 @@ const Brands: React.FC = () => {
 
   return (
     <section className="py-32 bg-white min-h-screen flex flex-col justify-center">
-      <div className="container mx-auto px-6 relative">
+      <div className="container mx-auto px-3 md:px-6 relative">
         <div id="brands" className="absolute -top-[90px] left-0 invisible" />
         <div className="mb-12 text-center md:text-left">
           <h2 className="font-serif text-4xl md:text-[3rem] text-elleo-dark tracking-[-0.02em]">Our Brands</h2>

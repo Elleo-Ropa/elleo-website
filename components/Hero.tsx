@@ -37,7 +37,7 @@ const Hero: React.FC = () => {
       />
 
       {/* Updated to use max-w-[1400px] specifically for Hero section as requested */}
-      <div className="container mx-auto max-w-[1400px] px-6 grid grid-cols-1 lg:grid-cols-2 gap-4 items-center h-full relative z-10">
+      <div className="container mx-auto max-w-[1400px] px-6 pt-10 grid grid-cols-1 lg:grid-cols-2 items-center h-full relative z-10">
 
         {/* Left Column: Text Content (Order 2 on mobile, Order 1 on desktop) */}
         <motion.div

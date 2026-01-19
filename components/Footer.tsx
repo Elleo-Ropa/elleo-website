@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
         This outer container matches the header's content width constraint.
         The dark box's edges align with the Logo (left) and 'Get in Touch' button (right).
       */}
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-0 mb:px-6">
         {/* Padding updated from lg:px-16 to lg:px-20 (5rem) as requested */}
         <div className="w-full bg-elleo-dark text-white rounded-t-[1.5rem] md:rounded-t-[3rem] pt-20 pb-[1.5rem] overflow-hidden shadow-2xl relative px-6 md:px-12 lg:px-20">
           <div className="relative z-10">

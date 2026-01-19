@@ -27,7 +27,7 @@ const VisionMission: React.FC = () => {
   return (
     // Updated padding-top to pt-40 (10rem) as requested
     <section className="pt-40 pb-24 bg-white overflow-hidden relative">
-      <div className="container mx-auto px-6">
+      <div className="container mx-auto px-3 md:px-6">
         {/* Main Background Card */}
         <div className="relative w-full rounded-[2rem] md:rounded-[3rem] overflow-hidden min-h-[700px] flex items-center bg-gradient-to-br from-white via-[#f5f3ff] to-[#ede9fe]">
 
@@ -53,7 +53,7 @@ const VisionMission: React.FC = () => {
             style={{ background: '#b99c48' }}
           />
 
-          <div className="relative z-10 w-full pt-20 pb-12 px-8 md:px-16 lg:px-24 flex flex-col lg:flex-row gap-0 items-center">
+          <div className="relative z-10 w-full py-20 pb-14 md:pb-20 px-6 md:px-16 lg:px-[60px] flex flex-col lg:flex-row gap-0 items-center">
 
             {/* Left Column: Heading & Intro */}
             <div className="lg:w-1/2 mb-12 lg:mb-0 text-center lg:text-left">
@@ -94,14 +94,14 @@ const VisionMission: React.FC = () => {
                   transition={{ delay: index * 0.2, duration: 0.6 }}
                   viewport={{ once: true }}
                   whileHover={{ scale: 1.02 }}
-                  className="bg-white/80 backdrop-blur-md rounded-3xl p-8 border border-white/50 shadow-xl shadow-purple-900/5 group flex items-start gap-6"
+                  className="bg-white/80 backdrop-blur-md rounded-3xl p-6 md:p-8 border border-white/50 shadow-xl shadow-purple-900/5 group flex items-start gap-6"
                 >
                   <AnimatedIcon icon={icons[index]} color="#a09fe2" />
 
                   <div className="flex-grow">
                     {/* Title Tag with Rounded Purple Background */}
                     <div className="flex justify-between items-center mb-4">
-                      <span className="font-sans font-bold text-xs tracking-widest text-white bg-elleo-light px-4 py-1.5 rounded-full uppercase">
+                      <span className="font-sans font-bold text-[0.6rem] md:text-xs tracking-widest text-white bg-elleo-light px-4 py-1.5 rounded-full uppercase">
                         {step.title}
                       </span>
                     </div>

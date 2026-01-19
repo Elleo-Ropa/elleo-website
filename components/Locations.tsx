@@ -15,7 +15,7 @@ const Locations: React.FC = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {LOCATIONS.map((loc, index) => (
-            <motion.div 
+            <motion.div
               key={index}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -25,9 +25,9 @@ const Locations: React.FC = () => {
             >
               <div className="relative overflow-hidden rounded-2xl aspect-video mb-6">
                 <div className="absolute inset-0 bg-elleo-dark/20 group-hover:bg-transparent transition-colors z-10" />
-                <img 
-                  src={loc.image} 
-                  alt={loc.name} 
+                <img
+                  src={loc.image}
+                  alt={loc.name}
                   className="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700"
                 />
                 <div className="absolute bottom-4 left-4 z-20 bg-white/90 backdrop-blur-sm px-4 py-1 rounded-full text-elleo-dark font-bold font-sans text-sm">

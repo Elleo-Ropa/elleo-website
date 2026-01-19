@@ -70,7 +70,7 @@ const Stats: React.FC = () => {
                 <Counter value={stat.value} />
               </div>
               {/* Font size changed from text-lg to text-base (1rem) */}
-              <div className="font-sans font-bold text-[14px] md:text-[14px] text-elleo-light text-base mb-1 tracking-widest uppercase">{stat.label}</div>
+              <div className="font-sans font-bold text-[10px] md:text-[14px] text-elleo-light text-base mb-1 tracking-widest uppercase">{stat.label}</div>
             </motion.div>
           ))}
         </div>
