@@ -39,12 +39,33 @@ const Hero: React.FC = () => {
       {/* Updated to use max-w-[1400px] specifically for Hero section as requested */}
       <div className="container mx-auto max-w-[1400px] px-6 pt-10 grid grid-cols-1 lg:grid-cols-2 items-center h-full relative z-10">
 
+        {/* Right Column: Lottie Animation (Order 1 on mobile, Order 2 on desktop) */}
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          // Removed delay: 0.2 and reduced duration for faster appearance
+          transition={{ duration: 0.5, delay: 0 }}
+          className="relative h-[320px] lg:h-[600px] w-full flex items-center justify-center lg:justify-end pointer-events-none lg:order-2"
+        >
+          <div className="w-full h-full md:w-[110%] md:h-[110%] scale-110 -translate-x-[10px] lg:translate-x-10 mix-blend-multiply">
+            <DotLottie
+              src="https://lottie.host/0c5c72b4-1e47-4a13-a4a1-d09963897550/xQ6pfsJcDa.lottie"
+              speed="1"
+              background="transparent"
+              style={{ width: '100%', height: '100%' }}
+              mode="forward"
+              loop
+              autoplay
+            />
+          </div>
+        </motion.div>
+
         {/* Left Column: Text Content (Order 2 on mobile, Order 1 on desktop) */}
         <motion.div
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col justify-center text-center lg:text-left pt-10 lg:pt-0 order-2 lg:order-1"
+          className="flex flex-col justify-center text-center lg:text-left pt-10 lg:pt-0 lg:order-1"
         >
           {/* 
             Headline updated:
@@ -79,27 +100,6 @@ const Hero: React.FC = () => {
             <a href="#brands" className="px-8 py-4 bg-elleo-dark text-white rounded-full font-sans font-bold text-[14px] tracking-wide hover:bg-elleo-light transition-colors duration-300 w-auto inline-block">
               View Brands
             </a>
-          </div>
-        </motion.div>
-
-        {/* Right Column: Lottie Animation (Order 1 on mobile, Order 2 on desktop) */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          // Removed delay: 0.2 and reduced duration for faster appearance
-          transition={{ duration: 0.5, delay: 0 }}
-          className="relative h-[320px] lg:h-[600px] w-full flex items-center justify-center lg:justify-end pointer-events-none order-1 lg:order-2"
-        >
-          <div className="w-full h-full md:w-[110%] md:h-[110%] scale-110 -translate-x-[10px] lg:translate-x-10 mix-blend-multiply">
-            <DotLottie
-              src="https://lottie.host/0c5c72b4-1e47-4a13-a4a1-d09963897550/xQ6pfsJcDa.lottie"
-              speed="1"
-              background="transparent"
-              style={{ width: '100%', height: '100%' }}
-              mode="forward"
-              loop
-              autoplay
-            />
           </div>
         </motion.div>
       </div>

@@ -11,7 +11,7 @@ const Footer: React.FC = () => {
         This outer container matches the header's content width constraint.
         The dark box's edges align with the Logo (left) and 'Get in Touch' button (right).
       */}
-      <div className="container mx-auto px-0 mb:px-6">
+      <div className="container mx-auto px-3 md:px-6">
         {/* Padding updated from lg:px-16 to lg:px-20 (5rem) as requested */}
         <div className="w-full bg-elleo-dark text-white rounded-t-[1.5rem] md:rounded-t-[3rem] pt-20 pb-[1.5rem] overflow-hidden shadow-2xl relative px-6 md:px-12 lg:px-20">
           <div className="relative z-10">
@@ -22,7 +22,7 @@ const Footer: React.FC = () => {
 
               {/* Left: Logo */}
               <div className="flex-shrink-0 pt-0 mx-auto lg:mx-0">
-                <img src={LOGO_DARK} alt="Elleo Group" className="w-48 md:w-[180px] opacity-90 block" />
+                <img src={LOGO_DARK} alt="Elleo Group" className="w-40 md:w-[180px] opacity-90 block" />
               </div>
 
               {/* Middle: 3-Column Info Section */}
@@ -73,8 +73,8 @@ const Footer: React.FC = () => {
             </div>
 
             {/* Bottom Bar */}
-            <div className="border-t border-white/10 pt-[2rem] flex flex-col md:flex-row justify-between items-center text-sm font-sans opacity-50 tracking-wider">
-              <p>© {new Date().getFullYear()} Elleo Group Holdings. All rights reserved.</p>
+            <div className="border-t border-white/10 pt-[2rem] flex flex-col md:flex-row justify-between items-center text-center gap-4 text-sm font-sans opacity-50 tracking-wider">
+              <p>© {new Date().getFullYear()} Elleo Group Holdings. <br className="md:hidden" /> All rights reserved.</p>
               <div className="flex gap-10 mt-6 md:mt-0">
                 <a href="#" className="hover:text-white transition-colors uppercase">Privacy Policy</a>
                 <a href="#" className="hover:text-white transition-colors uppercase">Terms of Service</a>
