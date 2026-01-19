@@ -83,7 +83,7 @@ const NavBar: React.FC = () => {
             transition={{ type: "tween", duration: 0.4 }}
             className="fixed inset-0 bg-elleo-dark z-40 flex flex-col justify-center items-center"
           >
-            <div className="flex flex-col space-y-8 text-center text-white font-sans text-3xl">
+            <div className="flex flex-col space-y-10 text-center text-white font-sans text-[1.5rem]">
               {menuItems.map((item) => (
                 item === 'Contact' ? (
                   <button
@@ -92,7 +92,7 @@ const NavBar: React.FC = () => {
                       setIsMenuOpen(false);
                       window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
                     }}
-                    className="hover:text-elleo-light transition-colors bg-transparent border-none p-0 font-sans text-3xl text-white cursor-pointer"
+                    className="hover:text-elleo-light transition-colors bg-transparent border-none p-0 font-sans font-[500] text-[1.5rem] text-white cursor-pointer"
                   >
                     {item}
                   </button>
@@ -101,7 +101,7 @@ const NavBar: React.FC = () => {
                     key={item}
                     href={`#${item.toLowerCase()}`}
                     onClick={() => setIsMenuOpen(false)}
-                    className="hover:text-elleo-light transition-colors"
+                    className="hover:text-elleo-light transition-colors font-[500]"
                   >
                     {item}
                   </a>
