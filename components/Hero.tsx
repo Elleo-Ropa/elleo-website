@@ -37,7 +37,7 @@ const Hero: React.FC = () => {
       />
 
       {/* Updated to use max-w-[1400px] specifically for Hero section as requested */}
-      <div className="container mx-auto max-w-[1400px] px-6 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center h-full relative z-10">
+      <div className="container mx-auto max-w-[1400px] px-6 grid grid-cols-1 lg:grid-cols-2 gap-4 items-center h-full relative z-10">
 
         {/* Left Column: Text Content (Order 2 on mobile, Order 1 on desktop) */}
         <motion.div
@@ -51,7 +51,7 @@ const Hero: React.FC = () => {
             - Added md:leading-[1.2] and lg:leading-[1.2] to explicitly override the line-height: 1 
               that comes with md:text-6xl and lg:text-7xl in Tailwind.
           */}
-          <h1 className="font-serif text-5xl md:text-6xl lg:text-[3.8rem] text-elleo-dark leading-[1.2] md:leading-[1.2] lg:leading-[1.2] mb-8 tracking-tighter">
+          <h1 className="font-serif text-4xl md:text-6xl lg:text-[3.8rem] text-elleo-dark leading-[1.2] md:leading-[1.2] lg:leading-[1.2] mb-8 tracking-tighter">
             <motion.span
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -71,12 +71,12 @@ const Hero: React.FC = () => {
           </h1>
           {/* Updated max-width to 50rem (max-w-[50rem]) as requested */}
           {/* Updated line-height to 2rem (leading-[2rem]) and forced it with md:leading-[2rem] to override md:text-xl default */}
-          <p className="text-lg md:text-[1.1rem] lg:text-[1.1rem] text-elleo-dark/70 font-sans leading-[2rem] md:leading-[2rem] max-w-[50rem] mx-auto lg:mx-0 mb-10">
+          <p className="text-[1rem] md:text-[1.2rem] lg:text-[1.2rem] text-elleo-dark/70 font-sans leading-[1.5rem] md:leading-[2rem] max-w-[50rem] mx-auto lg:mx-0 mb-10">
             Our vision is to provide our customers with a healthier choice by offering distinctive nutritious food prepared with premium quality ingredients
           </p>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center lg:items-start">
-            <a href="#brands" className="px-8 py-4 bg-elleo-dark text-white rounded-full font-sans font-bold text-[15px] tracking-wide hover:bg-elleo-light transition-colors duration-300">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center lg:items-start mb-14 lg:mb-0">
+            <a href="#brands" className="px-8 py-4 bg-elleo-dark text-white rounded-full font-sans font-bold text-[14px] tracking-wide hover:bg-elleo-light transition-colors duration-300 w-auto inline-block">
               View Brands
             </a>
           </div>
@@ -88,9 +88,9 @@ const Hero: React.FC = () => {
           animate={{ opacity: 1, scale: 1 }}
           // Removed delay: 0.2 and reduced duration for faster appearance
           transition={{ duration: 0.5, delay: 0 }}
-          className="relative h-[400px] lg:h-[600px] w-full flex items-center justify-center lg:justify-end pointer-events-none order-1 lg:order-2"
+          className="relative h-[320px] lg:h-[600px] w-full flex items-center justify-center lg:justify-end pointer-events-none order-1 lg:order-2"
         >
-          <div className="w-full h-full md:w-[110%] md:h-[110%] scale-110 lg:translate-x-10 mix-blend-multiply">
+          <div className="w-full h-full md:w-[110%] md:h-[110%] scale-110 -translate-x-[10px] lg:translate-x-10 mix-blend-multiply">
             <DotLottie
               src="https://lottie.host/0c5c72b4-1e47-4a13-a4a1-d09963897550/xQ6pfsJcDa.lottie"
               speed="1"

@@ -70,8 +70,7 @@ const Stats: React.FC = () => {
                 <Counter value={stat.value} />
               </div>
               {/* Font size changed from text-lg to text-base (1rem) */}
-              <div className="font-sans font-bold text-[0.9rem] text-elleo-light text-base mb-1 tracking-widest uppercase">{stat.label}</div>
-              {/* Subtext removed as requested */}
+              <div className="font-sans font-bold text-[14px] md:text-[14px] text-elleo-light text-base mb-1 tracking-widest uppercase">{stat.label}</div>
             </motion.div>
           ))}
         </div>
@@ -86,7 +85,7 @@ const Stats: React.FC = () => {
           {/* Increased margin top from mt-8 to mt-32 to push it further down */}
           <div className="relative border border-white/10 bg-white/5 backdrop-blur-md rounded-3xl p-8 md:p-12 flex flex-col items-center mt-32">
             {/* Absolute Label Positioned on Top Border */}
-            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-elleo-dark border border-elleo-light text-elleo-light px-6 py-2 rounded-full text-[0.8rem] font-bold uppercase tracking-widest z-10 whitespace-nowrap">
+            <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-elleo-dark border border-elleo-light text-elleo-light px-6 py-2 rounded-full text-[12px] md:text-[0.8rem] font-bold uppercase tracking-widest z-10 whitespace-nowrap">
               Branch Distribution
             </div>
 

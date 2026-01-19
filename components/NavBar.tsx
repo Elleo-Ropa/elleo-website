@@ -28,7 +28,7 @@ const NavBar: React.FC = () => {
       >
         <div className="container mx-auto px-6 flex justify-between items-center">
           {/* Logo Container - Resizes on scroll */}
-          <div className={`relative z-50 transition-all duration-500 ease-in-out ${isScrolled ? 'w-[150px]' : 'w-[170px]'}`}>
+          <div className={`relative z-50 transition-all duration-500 ease-in-out ${isScrolled ? 'w-[120px] md:w-[150px]' : 'w-[140px] md:w-[170px]'}`}>
             <a href="#">
               <img
                 src={isMenuOpen ? "https://www.sushia.com.au/wp-content/uploads/2026/01/Elleo-Group-Logo-W.svg" : LOGO_LIGHT}
