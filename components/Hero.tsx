@@ -72,7 +72,7 @@ const Hero: React.FC = () => {
             - Added md:leading-[1.2] and lg:leading-[1.2] to explicitly override the line-height: 1 
               that comes with md:text-6xl and lg:text-7xl in Tailwind.
           */}
-          <h1 className="font-serif text-4xl md:text-6xl lg:text-[3.8rem] text-elleo-dark leading-[1.2] md:leading-[1.2] lg:leading-[1.2] mb-8 tracking-tighter">
+          <h1 className="font-serif text-4xl md:text-6xl lg:text-[3.8rem] text-elleo-dark leading-[1.2] md:leading-[1.2] lg:leading-[1.2] mb-4 md:mb-8 tracking-tighter">
             <motion.span
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
