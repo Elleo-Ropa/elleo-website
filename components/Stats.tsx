@@ -71,7 +71,7 @@ const Stats: React.FC = () => {
               </div>
               {/* Font size changed from text-lg to text-base (1rem) */}
               {/* Font size and line wrapping adjusted for mobile */}
-              <div className="font-sans font-bold text-[11px] md:text-[14px] text-elleo-light text-base mb-1 tracking-widest uppercase text-center leading-tight">
+              <div className="font-sans font-bold text-[13px] md:text-[14px] text-elleo-light mb-1 tracking-widest uppercase text-center leading-tight">
                 {stat.label === "Total Branches" ? (
                   <>Total<br className="md:hidden" /> Branches</>
                 ) : stat.label === "Monthly Visitors" ? (
@@ -103,7 +103,7 @@ const Stats: React.FC = () => {
                 <b className="text-white text-3xl md:text-5xl font-serif mb-2 group-hover:text-elleo-light transition-colors">
                   <Counter value="25" />
                 </b>
-                <span className="text-elleo-light font-sans text-sm font-bold tracking-[0.2em]">NSW</span>
+                <span className="text-elleo-light font-sans text-[11px] md:text-[14px] font-bold tracking-[0.2em]">NSW</span>
               </div>
               <div className="w-px h-12 bg-white/10 hidden md:block" />
 
@@ -111,7 +111,7 @@ const Stats: React.FC = () => {
                 <b className="text-white text-3xl md:text-5xl font-serif mb-2 group-hover:text-elleo-light transition-colors">
                   <Counter value="2" />
                 </b>
-                <span className="text-elleo-light font-sans text-sm font-bold tracking-[0.2em]">VIC</span>
+                <span className="text-elleo-light font-sans text-[11px] md:text-[14px] font-bold tracking-[0.2em]">VIC</span>
               </div>
               <div className="w-px h-12 bg-white/10 hidden md:block" />
 
@@ -119,7 +119,7 @@ const Stats: React.FC = () => {
                 <b className="text-white text-3xl md:text-5xl font-serif mb-2 group-hover:text-elleo-light transition-colors">
                   <Counter value="10" />
                 </b>
-                <span className="text-elleo-light font-sans text-sm font-bold tracking-[0.2em]">QLD</span>
+                <span className="text-elleo-light font-sans text-[11px] md:text-[14px] font-bold tracking-[0.2em]">QLD</span>
               </div>
               <div className="w-px h-12 bg-white/10 hidden md:block" />
 
@@ -127,7 +127,7 @@ const Stats: React.FC = () => {
                 <b className="text-white text-3xl md:text-5xl font-serif mb-2 group-hover:text-elleo-light transition-colors">
                   <Counter value="14" />
                 </b>
-                <span className="text-elleo-light font-sans text-sm font-bold tracking-[0.2em]">WA</span>
+                <span className="text-elleo-light font-sans text-[11px] md:text-[14px] font-bold tracking-[0.2em]">WA</span>
               </div>
             </div>
           </div>

@@ -82,9 +82,9 @@ const Brands: React.FC = () => {
                             </p>
 
                             {/* Bottom Tags - Updated: tracking-[0.3px] added */}
-                            <div className="hidden md:flex flex-wrap gap-2 mt-4">
+                            <div className="flex flex-wrap gap-2 mt-4">
                               {brand.features.map(f => (
-                                <span key={f} className="text-xs text-[var(--brand-color)] border border-[var(--brand-color)] px-3 py-1.5 rounded-lg font-semibold tracking-[0.3px]">
+                                <span key={f} className="text-[10px] md:text-xs text-[var(--brand-color)] border border-[var(--brand-color)] px-2 py-1 md:px-3 md:py-1.5 rounded-[5px] md:rounded-lg font-semibold tracking-[0.3px]">
                                   {f}
                                 </span>
                               ))}
