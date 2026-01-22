@@ -27,6 +27,18 @@ const Contact: React.FC = () => {
                   type="text"
                   className="w-full bg-white/50 border border-gray-200 rounded-lg px-6 py-3 focus:outline-none focus:ring-2 focus:ring-elleo-light/50 focus:border-elleo-light transition-all text-elleo-dark placeholder-gray-400"
                   placeholder="Your Name"
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      e.preventDefault();
+                      const form = e.currentTarget.form;
+                      if (!form) return;
+                      const index = Array.prototype.indexOf.call(form, e.currentTarget);
+                      const nextElement = form.elements[index + 1] as HTMLElement;
+                      if (nextElement) {
+                        nextElement.focus();
+                      }
+                    }
+                  }}
                 />
               </div>
               <div className="space-y-2 group">
@@ -35,6 +47,18 @@ const Contact: React.FC = () => {
                   type="email"
                   className="w-full bg-white/50 border border-gray-200 rounded-lg px-6 py-3 focus:outline-none focus:ring-2 focus:ring-elleo-light/50 focus:border-elleo-light transition-all text-elleo-dark placeholder-gray-400"
                   placeholder="your@email.com"
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      e.preventDefault();
+                      const form = e.currentTarget.form;
+                      if (!form) return;
+                      const index = Array.prototype.indexOf.call(form, e.currentTarget);
+                      const nextElement = form.elements[index + 1] as HTMLElement;
+                      if (nextElement) {
+                        nextElement.focus();
+                      }
+                    }
+                  }}
                 />
               </div>
             </div>
@@ -46,6 +70,18 @@ const Contact: React.FC = () => {
                   type="tel"
                   className="w-full bg-white/50 border border-gray-200 rounded-lg px-6 py-3 focus:outline-none focus:ring-2 focus:ring-elleo-light/50 focus:border-elleo-light transition-all text-elleo-dark placeholder-gray-400"
                   placeholder="Phone Number"
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      e.preventDefault();
+                      const form = e.currentTarget.form;
+                      if (!form) return;
+                      const index = Array.prototype.indexOf.call(form, e.currentTarget);
+                      const nextElement = form.elements[index + 1] as HTMLElement;
+                      if (nextElement) {
+                        nextElement.focus();
+                      }
+                    }
+                  }}
                 />
               </div>
               <div className="space-y-2 group">
@@ -54,6 +90,18 @@ const Contact: React.FC = () => {
                   type="text"
                   className="w-full bg-white/50 border border-gray-200 rounded-lg px-6 py-3 focus:outline-none focus:ring-2 focus:ring-elleo-light/50 focus:border-elleo-light transition-all text-elleo-dark placeholder-gray-400"
                   placeholder="Inquiry Subject"
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter') {
+                      e.preventDefault();
+                      const form = e.currentTarget.form;
+                      if (!form) return;
+                      const index = Array.prototype.indexOf.call(form, e.currentTarget);
+                      const nextElement = form.elements[index + 1] as HTMLElement;
+                      if (nextElement) {
+                        nextElement.focus();
+                      }
+                    }
+                  }}
                 />
               </div>
             </div>
