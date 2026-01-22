@@ -18,7 +18,7 @@ const Hero: React.FC = () => {
         .then(response => response.json())
         .then(data => setAnimationData(data))
         .catch(error => console.error('Error loading Lottie animation:', error));
-    }, 1500); // 1.5s delay to let the main thread breathe
+    }, 100); // Reduced delay to 100ms for faster appearance
 
     return () => clearTimeout(timer);
   }, []);
