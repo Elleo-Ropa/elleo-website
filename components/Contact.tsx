@@ -19,13 +19,13 @@ const Contact: React.FC = () => {
           </div>
 
           <form>
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div className="space-y-2 group">
                 <label className="font-sans text-xs font-bold text-elleo-dark/100 uppercase tracking-widest pl-1">Name</label>
                 {/* Rounded-2xl changed to rounded-lg */}
                 <input
                   type="text"
-                  className="w-full bg-white/50 border border-gray-200 rounded-lg px-6 py-4 focus:outline-none focus:ring-2 focus:ring-elleo-light/50 focus:border-elleo-light transition-all text-elleo-dark placeholder-gray-400"
+                  className="w-full bg-white/50 border border-gray-200 rounded-lg px-6 py-3 focus:outline-none focus:ring-2 focus:ring-elleo-light/50 focus:border-elleo-light transition-all text-elleo-dark placeholder-gray-400"
                   placeholder="Your Name"
                 />
               </div>
@@ -33,18 +33,18 @@ const Contact: React.FC = () => {
                 <label className="font-sans text-xs font-bold text-elleo-dark/100 uppercase tracking-widest pl-1">Email</label>
                 <input
                   type="email"
-                  className="w-full bg-white/50 border border-gray-200 rounded-lg px-6 py-4 focus:outline-none focus:ring-2 focus:ring-elleo-light/50 focus:border-elleo-light transition-all text-elleo-dark placeholder-gray-400"
+                  className="w-full bg-white/50 border border-gray-200 rounded-lg px-6 py-3 focus:outline-none focus:ring-2 focus:ring-elleo-light/50 focus:border-elleo-light transition-all text-elleo-dark placeholder-gray-400"
                   placeholder="your@email.com"
                 />
               </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div className="space-y-2 group">
                 <label className="font-sans text-xs font-bold text-elleo-dark/100 uppercase tracking-widest pl-1">Phone</label>
                 <input
                   type="tel"
-                  className="w-full bg-white/50 border border-gray-200 rounded-lg px-6 py-4 focus:outline-none focus:ring-2 focus:ring-elleo-light/50 focus:border-elleo-light transition-all text-elleo-dark placeholder-gray-400"
+                  className="w-full bg-white/50 border border-gray-200 rounded-lg px-6 py-3 focus:outline-none focus:ring-2 focus:ring-elleo-light/50 focus:border-elleo-light transition-all text-elleo-dark placeholder-gray-400"
                   placeholder="Phone Number"
                 />
               </div>
@@ -52,7 +52,7 @@ const Contact: React.FC = () => {
                 <label className="font-sans text-xs font-bold text-elleo-dark/100 uppercase tracking-widest pl-1">Subject</label>
                 <input
                   type="text"
-                  className="w-full bg-white/50 border border-gray-200 rounded-lg px-6 py-4 focus:outline-none focus:ring-2 focus:ring-elleo-light/50 focus:border-elleo-light transition-all text-elleo-dark placeholder-gray-400"
+                  className="w-full bg-white/50 border border-gray-200 rounded-lg px-6 py-3 focus:outline-none focus:ring-2 focus:ring-elleo-light/50 focus:border-elleo-light transition-all text-elleo-dark placeholder-gray-400"
                   placeholder="Inquiry Subject"
                 />
               </div>
@@ -62,7 +62,7 @@ const Contact: React.FC = () => {
               <label className="font-sans text-xs font-bold text-elleo-dark/100 uppercase tracking-widest pl-1">Message</label>
               <textarea
                 rows={5}
-                className="w-full bg-white/50 border border-gray-200 rounded-lg px-6 py-4 focus:outline-none focus:ring-2 focus:ring-elleo-light/50 focus:border-elleo-light transition-all text-elleo-dark placeholder-gray-400 resize-y"
+                className="w-full bg-white/50 border border-gray-200 rounded-lg px-6 py-3 focus:outline-none focus:ring-2 focus:ring-elleo-light/50 focus:border-elleo-light transition-all text-elleo-dark placeholder-gray-400 resize-y"
                 placeholder="How can we help you?"
               ></textarea>
             </div>
