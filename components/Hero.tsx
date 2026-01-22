@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
-
-// Helper component to render the custom element without TypeScript errors
-const DotLottie = (props: any) => {
-  return React.createElement('dotlottie-wc', props);
-};
+import Lottie from 'lottie-react';
+// Import the animation JSON directly - now it's in public/assets, we can fetch it relatively or import if inside src
+// Since it's in public, we should fetch it relative to root, BUT importing is safer if we move it to src.
+// Let's stick to fetch for public asset but use relative path which is safer.
+// actually user might prefer import if I move it to src. But I put it in public.
+// Wait, if it's in public, I can just use fetch('/assets/animation.json')
+// Let's do that.
 
 const Hero: React.FC = () => {
+  const [animationData, setAnimationData] = useState<any>(null);
+
+  useEffect(() => {
+    fetch('/assets/animation.json')
+      .then(response => response.json())
+      .then(data => setAnimationData(data))
+      .catch(error => console.error('Error loading Lottie animation:', error));
+  }, []);
+
   return (
     <section
       // Background gradient matched exactly to Vision section (starting from white)
@@ -48,15 +59,14 @@ const Hero: React.FC = () => {
           className="relative h-[320px] lg:h-[600px] w-full flex items-center justify-center lg:justify-end pointer-events-none lg:order-2"
         >
           <div className="w-full h-full md:w-[110%] md:h-[110%] scale-110 -translate-x-[10px] lg:translate-x-10 mix-blend-multiply">
-            <DotLottie
-              src="https://lottie.host/0c5c72b4-1e47-4a13-a4a1-d09963897550/xQ6pfsJcDa.lottie"
-              speed="1"
-              background="transparent"
-              style={{ width: '100%', height: '100%' }}
-              mode="forward"
-              loop
-              autoplay
-            />
+            {animationData && (
+              <Lottie
+                animationData={animationData}
+                loop={true}
+                autoplay={true}
+                style={{ width: '100%', height: '100%' }}
+              />
+            )}
           </div>
         </motion.div>
 
