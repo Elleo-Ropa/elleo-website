@@ -12,10 +12,15 @@ const Hero: React.FC = () => {
   const [animationData, setAnimationData] = useState<any>(null);
 
   useEffect(() => {
-    fetch('/assets/animation.json')
-      .then(response => response.json())
-      .then(data => setAnimationData(data))
-      .catch(error => console.error('Error loading Lottie animation:', error));
+    // Lazy load the animation with a delay to prioritize initial page render
+    const timer = setTimeout(() => {
+      fetch('/assets/animation.json')
+        .then(response => response.json())
+        .then(data => setAnimationData(data))
+        .catch(error => console.error('Error loading Lottie animation:', error));
+    }, 1500); // 1.5s delay to let the main thread breathe
+
+    return () => clearTimeout(timer);
   }, []);
 
   return (
@@ -24,7 +29,8 @@ const Hero: React.FC = () => {
       className="relative w-full min-h-[100dvh] flex items-center bg-gradient-to-br from-white via-[#f5f3ff] to-[#ede9fe] overflow-hidden pt-20"
     >
       {/* 
-         Background blobs reverted to lower opacity for subtle effect
+         Background blobs - DISABLED ON MOBILE for performance
+         Added 'hidden md:block' to prevent rendering on small screens
       */}
       <motion.div
         animate={{
@@ -33,7 +39,7 @@ const Hero: React.FC = () => {
           scale: [1, 1.2, 0.9, 1]
         }}
         transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-        className="absolute top-[-10%] right-[-10%] w-[80%] h-[80%] rounded-full blur-[120px] opacity-30 pointer-events-none"
+        className="absolute top-[-10%] right-[-10%] w-[80%] h-[80%] rounded-full blur-[120px] opacity-30 pointer-events-none hidden md:block"
         style={{ background: '#a09fe2' }}
       />
       <motion.div
@@ -43,7 +49,7 @@ const Hero: React.FC = () => {
           scale: [1, 0.8, 1.1, 1]
         }}
         transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-        className="absolute bottom-[-10%] left-[-10%] w-[70%] h-[70%] rounded-full blur-[100px] opacity-20 pointer-events-none"
+        className="absolute bottom-[-10%] left-[-10%] w-[70%] h-[70%] rounded-full blur-[100px] opacity-20 pointer-events-none hidden md:block"
         style={{ background: '#b99c48' }}
       />
 
