@@ -10,7 +10,7 @@ const Hero: React.FC = () => {
   return (
     <section
       // Background gradient matched exactly to Vision section (starting from white)
-      className="relative w-full min-h-screen flex items-center bg-gradient-to-br from-white via-[#f5f3ff] to-[#ede9fe] overflow-hidden pt-20"
+      className="relative w-full min-h-[100dvh] flex items-center bg-gradient-to-br from-white via-[#f5f3ff] to-[#ede9fe] overflow-hidden pt-20"
     >
       {/* 
          Background blobs reverted to lower opacity for subtle effect
