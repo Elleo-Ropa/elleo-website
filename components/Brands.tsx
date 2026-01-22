@@ -53,8 +53,8 @@ const Brands: React.FC = () => {
                     {/* ArrowUpRight was here, now removed as requested */}
                   </div>
 
-                  {/* Bottom Content Area */}
-                  <div className={`relative z-10 w-full h-full flex flex-col ${isActive ? 'justify-end' : 'justify-center items-center'}`}>
+                  {/* Bottom Content Area - Fixed: Center on Mobile, Bottom on Desktop */}
+                  <div className={`relative z-10 w-full h-full flex flex-col ${isActive ? 'justify-end' : 'justify-center md:justify-end items-center'}`}>
                     {isActive ? (
                       /* Active State Content */
                       <motion.div
