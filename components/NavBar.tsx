@@ -2,10 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { LOGO_DARK, LOGO_LIGHT } from '../constants';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useLocation, Link } from 'react-router-dom';
 
 const NavBar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const location = useLocation();
+  const isHome = location.pathname === '/';
 
   useEffect(() => {
     const handleScroll = () => {
@@ -15,7 +18,24 @@ const NavBar: React.FC = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // Handle hash scroll when navigating from another page
+  useEffect(() => {
+    if (location.hash) {
+      const element = document.getElementById(location.hash.substring(1));
+      if (element) {
+        setTimeout(() => {
+          element.scrollIntoView({ behavior: 'smooth' });
+        }, 100);
+      }
+    }
+  }, [location]);
+
   const menuItems = ['About', 'Culture', 'Brands', 'Contact'];
+
+  const getLinkHref = (item: string) => {
+    const hash = `#${item.toLowerCase()}`;
+    return isHome ? hash : `/${hash}`;
+  };
 
   return (
     <>
@@ -29,13 +49,13 @@ const NavBar: React.FC = () => {
         <div className="container mx-auto  pl-6 pr-3 md:px-6 flex justify-between items-center">
           {/* Logo Container - Resizes on scroll */}
           <div className={`relative z-50 transition-all duration-500 ease-in-out ${isScrolled ? 'w-[120px] md:w-[150px]' : 'w-[140px] md:w-[170px]'}`}>
-            <a href="#">
+            <Link to="/">
               <img
                 src={isMenuOpen ? "https://www.sushia.com.au/wp-content/uploads/2026/01/Elleo-Group-Logo-W.svg" : LOGO_LIGHT}
                 alt="Elleo Group"
                 className="w-full h-auto transition-opacity duration-300"
               />
-            </a>
+            </Link>
           </div>
 
           {/* Desktop Menu */}
@@ -44,19 +64,25 @@ const NavBar: React.FC = () => {
               item === 'Contact' ? (
                 <button
                   key={item}
-                  onClick={() => window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' })}
+                  onClick={() => {
+                    if (isHome) {
+                      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+                    } else {
+                      window.location.href = '/#contact';
+                    }
+                  }}
                   className="hover:text-elleo-light transition-colors cursor-pointer bg-transparent border-none p-0 font-medium font-sans text-[15px]"
                 >
                   {item}
                 </button>
               ) : (
-                <a key={item} href={`#${item.toLowerCase()}`} className="hover:text-elleo-light transition-colors">
+                <a key={item} href={getLinkHref(item)} className="hover:text-elleo-light transition-colors">
                   {item}
                 </a>
               )
             ))}
             <a
-              href="#contact"
+              href={isHome ? "#contact" : "/#contact"}
               className={`px-6 py-2 rounded-full transition-all duration-300 font-semibold bg-elleo-light text-white hover:bg-elleo-dark`}
             >
               Get in Touch
@@ -90,7 +116,11 @@ const NavBar: React.FC = () => {
                     key={item}
                     onClick={() => {
                       setIsMenuOpen(false);
-                      window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+                      if (isHome) {
+                        window.scrollTo({ top: document.body.scrollHeight, behavior: 'smooth' });
+                      } else {
+                        window.location.href = '/#contact';
+                      }
                     }}
                     className="hover:text-elleo-light transition-colors bg-transparent border-none p-0 font-sans font-[500] text-[1.5rem] text-white cursor-pointer"
                   >
@@ -99,7 +129,7 @@ const NavBar: React.FC = () => {
                 ) : (
                   <a
                     key={item}
-                    href={`#${item.toLowerCase()}`}
+                    href={getLinkHref(item)}
                     onClick={() => setIsMenuOpen(false)}
                     className="hover:text-elleo-light transition-colors font-[500]"
                   >
@@ -108,7 +138,7 @@ const NavBar: React.FC = () => {
                 )
               ))}
               <a
-                href="#contact"
+                href={isHome ? "#contact" : "/#contact"}
                 onClick={() => setIsMenuOpen(false)}
                 className="bg-elleo-light text-white px-8 py-3 rounded-full font-sans font-bold text-xl hover:bg-white hover:text-elleo-dark transition-colors"
               >

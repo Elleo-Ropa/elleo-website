@@ -1,12 +1,16 @@
 import React from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import { LOGO_DARK, SYMBOL } from '../constants';
 import { Phone, Mail } from 'lucide-react';
 
 const Footer: React.FC = () => {
+  const location = useLocation();
+  const isPrivacyPolicy = location.pathname === '/privacy-policy';
+
   return (
     // Background updated to match the end of Contact section's gradient for seamless look
     // Removed duplicate id="contact"
-    <footer id="contact" className="bg-[#ede9fe] pt-10">
+    <footer id="contact" className={`${isPrivacyPolicy ? 'bg-white' : 'bg-[#ede9fe]'} pt-10`}>
       {/* 
         This outer container matches the header's content width constraint.
         The dark box's edges align with the Logo (left) and 'Get in Touch' button (right).
@@ -75,6 +79,9 @@ const Footer: React.FC = () => {
             {/* Bottom Bar */}
             <div className="border-t border-white/10 pt-[2rem] flex flex-col md:flex-row justify-between items-center text-center gap-4 text-sm font-sans opacity-50 tracking-wider">
               <p>© {new Date().getFullYear()} Elleo Group Holdings. <br className="md:hidden" /> All rights reserved.</p>
+              <div className="flex gap-10 mt-6 md:mt-0">
+                <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+              </div>
             </div>
           </div>
         </div>

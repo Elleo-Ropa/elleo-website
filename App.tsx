@@ -1,33 +1,24 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import NavBar from './components/NavBar';
-import Hero from './components/Hero';
-import Marquee from './components/Marquee';
-import Stats from './components/Stats';
-import VisionMission from './components/VisionMission';
-import Brands from './components/Brands';
-import LogoTicker from './components/LogoTicker';
-import Contact from './components/Contact';
 import Footer from './components/Footer';
-import CorporateCulture from './components/CorporateCulture';
 import ScrollToTop from './components/ScrollToTop';
+import Home from './components/Home';
+import PrivacyPolicy from './components/PrivacyPolicy';
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen flex flex-col font-sans">
-      <NavBar />
-      <main>
-        <Hero />
-        <Marquee />
-        <Stats />
-        <VisionMission />
-        <CorporateCulture />
-        <Brands />
-        <LogoTicker />
-        <Contact />
-      </main>
-      <Footer />
-      <ScrollToTop />
-    </div>
+    <Router>
+      <div className="min-h-screen flex flex-col font-sans">
+        <NavBar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+        </Routes>
+        <Footer />
+        <ScrollToTop />
+      </div>
+    </Router>
   );
 };
 
