@@ -59,9 +59,13 @@ const CorporateCulture: React.FC = () => {
                 transition={{ delay: index * 0.1, duration: 0.5 }}
                 className="w-full group"
               >
-                {/* Updated background to gradient: from subtle purple at bottom to white at top */}
-                {/* Border removed as requested */}
-                <div className="h-full bg-gradient-to-t from-[#f5f3ff] to-white rounded-3xl p-4 hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] transition-all duration-300 flex flex-col items-center justify-center text-center">
+                <div
+                  className="h-[220px] rounded-3xl p-4 hover:shadow-[0_8px_30px_rgb(0,0,0,0.06)] hover:-translate-y-2 transition-all duration-300 flex flex-col items-center justify-center text-center"
+                  style={{
+                    background: 'linear-gradient(to top, #f5f3ff, #ffffff) padding-box, linear-gradient(to bottom, #e5e0feff, #ffffff) border-box',
+                    border: '1px solid transparent',
+                  }}
+                >
 
                   {/* Icon Circle - Increased size from w-14/h-14 to w-20/h-20 */}
                   <div className="w-20 h-20 rounded-2xl bg-elleo-light/10 flex items-center justify-center mb-6 group-hover:bg-elleo-light group-hover:scale-110 transition-all duration-300 shrink-0">

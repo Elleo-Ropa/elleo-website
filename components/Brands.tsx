@@ -101,7 +101,7 @@ const Brands: React.FC = () => {
                             whileTap={{ scale: 0.98 }}
                           >
                             <div className="
-                                px-5 py-2 md:px-10 md:py-4 
+                                px-5 py-2 md:px-7 md:py-3 
                                 bg-[var(--brand-color)] text-white 
                                 hover:bg-elleo-dark 
                                 rounded-full
