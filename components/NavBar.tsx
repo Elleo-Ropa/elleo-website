@@ -49,9 +49,17 @@ const NavBar: React.FC = () => {
         <div className="container mx-auto  pl-6 pr-3 md:px-6 flex justify-between items-center">
           {/* Logo Container - Resizes on scroll */}
           <div className={`relative z-50 transition-all duration-500 ease-in-out ${isScrolled ? 'w-[120px] md:w-[150px]' : 'w-[140px] md:w-[170px]'}`}>
-            <Link to="/">
+            <Link
+              to="/"
+              onClick={(e) => {
+                if (isHome) {
+                  e.preventDefault();
+                  window.scrollTo({ top: 0, behavior: 'smooth' });
+                }
+              }}
+            >
               <img
-                src={isMenuOpen ? "https://www.sushia.com.au/wp-content/uploads/2026/01/Elleo-Group-Logo-W.svg" : LOGO_LIGHT}
+                src={isScrolled ? LOGO_LIGHT : LOGO_DARK}
                 alt="Elleo Group"
                 className="w-full h-auto transition-opacity duration-300"
               />
@@ -59,7 +67,7 @@ const NavBar: React.FC = () => {
           </div>
 
           {/* Desktop Menu */}
-          <div className={`hidden md:flex items-center space-x-8 font-sans font-medium text-[15px] text-elleo-dark`}>
+          <div className="hidden md:flex items-center space-x-8 font-sans font-medium text-[15px]">
             {menuItems.map((item) => (
               item === 'Contact' ? (
                 <button
@@ -71,19 +79,23 @@ const NavBar: React.FC = () => {
                       window.location.href = '/#contact';
                     }
                   }}
-                  className="hover:text-elleo-light transition-colors cursor-pointer bg-transparent border-none p-0 font-medium font-sans text-[15px]"
+                  className={`hover:text-elleo-light transition-colors duration-300 cursor-pointer bg-transparent border-none p-0 font-medium font-sans text-[15px] ${isScrolled ? 'text-elleo-dark' : 'text-white'}`}
                 >
                   {item}
                 </button>
               ) : (
-                <a key={item} href={getLinkHref(item)} className="hover:text-elleo-light transition-colors">
+                <a
+                  key={item}
+                  href={getLinkHref(item)}
+                  className={`hover:text-elleo-light transition-colors duration-300 ${isScrolled ? 'text-elleo-dark' : 'text-white'}`}
+                >
                   {item}
                 </a>
               )
             ))}
             <a
               href={isHome ? "#contact" : "/#contact"}
-              className={`px-6 py-2 rounded-full transition-all duration-300 font-semibold bg-elleo-light text-white hover:bg-elleo-dark`}
+              className={`px-6 py-2 rounded-full transition-all duration-300 font-semibold ${isScrolled ? 'bg-elleo-light text-white hover:bg-elleo-dark' : 'bg-elleo-light text-white hover:bg-white hover:text-elleo-light'}`}
             >
               Get in Touch
             </a>
@@ -91,7 +103,7 @@ const NavBar: React.FC = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className={`md:hidden z-50 p-2 ${isMenuOpen ? 'text-white' : 'text-elleo-dark'} transition-colors duration-300`}
+            className={`md:hidden z-50 p-2 ${isMenuOpen ? 'text-white' : (isScrolled ? 'text-elleo-dark' : 'text-white')} transition-colors duration-300`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
@@ -122,7 +134,7 @@ const NavBar: React.FC = () => {
                         window.location.href = '/#contact';
                       }
                     }}
-                    className="hover:text-elleo-light transition-colors bg-transparent border-none p-0 font-sans font-[500] text-[1.5rem] text-white cursor-pointer"
+                    className="hover:text-elleo-light transition-all duration-300 bg-transparent border-none p-0 font-sans font-[500] text-[1.5rem] cursor-pointer"
                   >
                     {item}
                   </button>
@@ -131,7 +143,7 @@ const NavBar: React.FC = () => {
                     key={item}
                     href={getLinkHref(item)}
                     onClick={() => setIsMenuOpen(false)}
-                    className="hover:text-elleo-light transition-colors font-[500]"
+                    className="hover:text-elleo-light transition-all duration-300 font-[500]"
                   >
                     {item}
                   </a>
@@ -140,7 +152,7 @@ const NavBar: React.FC = () => {
               <a
                 href={isHome ? "#contact" : "/#contact"}
                 onClick={() => setIsMenuOpen(false)}
-                className="bg-elleo-light text-white px-8 py-3 rounded-full font-sans font-bold text-xl hover:bg-white hover:text-elleo-dark transition-colors"
+                className="bg-elleo-light text-white px-8 py-3 rounded-full font-sans font-bold text-xl hover:bg-white hover:text-elleo-light transition-colors"
               >
                 Get in Touch
               </a>

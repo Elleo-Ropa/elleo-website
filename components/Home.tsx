@@ -1,6 +1,5 @@
 import React from 'react';
 import Hero from './Hero';
-import Marquee from './Marquee';
 import Stats from './Stats';
 import VisionMission from './VisionMission';
 import Brands from './Brands';
@@ -12,7 +11,6 @@ const Home: React.FC = () => {
     return (
         <main>
             <Hero />
-            <Marquee />
             <Stats />
             <VisionMission />
             <CorporateCulture />

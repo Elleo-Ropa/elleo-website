@@ -1,136 +1,134 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import Lottie from 'lottie-react';
-// Import the animation JSON directly - now it's in public/assets, we can fetch it relatively or import if inside src
-// Since it's in public, we should fetch it relative to root, BUT importing is safer if we move it to src.
-// Let's stick to fetch for public asset but use relative path which is safer.
-// actually user might prefer import if I move it to src. But I put it in public.
-// Wait, if it's in public, I can just use fetch('/assets/animation.json')
-// Let's do that.
+import { motion, AnimatePresence } from 'framer-motion';
 
 const Hero: React.FC = () => {
-  const [animationData, setAnimationData] = useState<any>(null);
+  const [images, setImages] = useState<string[]>([]);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  // Helper to shuffle an array
+  const shuffleArray = (array: string[]) => {
+    const newArr = [...array];
+    for (let i = newArr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [newArr[i], newArr[j]] = [newArr[j], newArr[i]];
+    }
+    return newArr;
+  };
 
   useEffect(() => {
-    // Lazy load the animation with a delay to prioritize initial page render
-    const timer = setTimeout(() => {
-      fetch('/assets/animation.json')
-        .then(response => response.json())
-        .then(data => setAnimationData(data))
-        .catch(error => console.error('Error loading Lottie animation:', error));
-    }, 100); // Reduced delay to 100ms for faster appearance
+    // In Vite, we can dynamically import all images from a directory using import.meta.glob
+    const loadImages = () => {
+      // This reads all matching files in the public folder at build/dev time
+      // Use any cast to bypass TypeScript error if vite/client types aren't set up
+      const imageModules = (import.meta as any).glob('/public/Photo/*.{webp,png,jpg,jpeg}', { eager: true });
 
-    return () => clearTimeout(timer);
+      // Extract the paths and remove '/public' since it's served from root
+      const imagePaths = Object.keys(imageModules).map(key => key.replace('/public', ''));
+
+      if (imagePaths.length > 0) {
+        setImages(shuffleArray(imagePaths));
+      }
+    };
+
+    loadImages();
   }, []);
 
+  useEffect(() => {
+    // Image slideshow interval
+    if (images.length === 0) return;
+
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prev) => (prev + 1) % images.length);
+    }, 5000);
+
+    return () => clearInterval(interval);
+  }, [images]);
+
   return (
-    <section
-      // Background gradient matched exactly to Vision section (starting from white)
-      className="relative w-full min-h-[100dvh] flex items-center bg-gradient-to-br from-white via-[#f5f3ff] to-[#ede9fe] overflow-hidden pt-20"
-    >
+    <section className="relative w-full min-h-[100dvh] bg-black overflow-hidden flex flex-col justify-end pb-6 md:pb-10">
       {/* 
-         Background blobs - DISABLED ON MOBILE for performance
-         Added 'hidden md:block' to prevent rendering on small screens
+        The Background (Crossfading Slideshow) 
       */}
-      <motion.div
-        animate={{
-          x: [0, 50, -30, 0],
-          y: [0, -40, 60, 0],
-          scale: [1, 1.2, 0.9, 1]
-        }}
-        transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-        className="absolute top-[-10%] right-[-10%] w-[80%] h-[80%] rounded-full blur-[120px] opacity-30 pointer-events-none hidden md:block"
-        style={{ background: '#a09fe2' }}
-      />
-      <motion.div
-        animate={{
-          x: [0, -60, 40, 0],
-          y: [0, 50, -30, 0],
-          scale: [1, 0.8, 1.1, 1]
-        }}
-        transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-        className="absolute bottom-[-10%] left-[-10%] w-[70%] h-[70%] rounded-full blur-[100px] opacity-20 pointer-events-none hidden md:block"
-        style={{ background: '#b99c48' }}
-      />
-
-      {/* Updated to use max-w-[1400px] specifically for Hero section as requested */}
-      <div className="container mx-auto max-w-[1400px] px-6 pt-10 grid grid-cols-1 lg:grid-cols-2 items-center h-full relative z-10">
-
-        {/* Right Column: Lottie Animation (Order 1 on mobile, Order 2 on desktop) */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          // Removed delay: 0.2 and reduced duration for faster appearance
-          transition={{ duration: 0.5, delay: 0 }}
-          className="relative h-[320px] lg:h-[600px] w-full flex items-center justify-center lg:justify-end pointer-events-none lg:order-2"
-        >
-          <div className="w-full h-full md:w-[110%] md:h-[110%] scale-110 -translate-x-[10px] lg:translate-x-10 mix-blend-multiply">
-            {animationData && (
-              <Lottie
-                animationData={animationData}
-                loop={true}
-                autoplay={true}
-                style={{ width: '100%', height: '100%' }}
-              />
-            )}
-          </div>
-        </motion.div>
-
-        {/* Left Column: Text Content (Order 2 on mobile, Order 1 on desktop) */}
-        <motion.div
-          initial={{ opacity: 0, x: -30 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col justify-center text-center lg:text-left pt-10 lg:pt-0 lg:order-1"
-        >
-          {/* 
-            Headline updated:
-            - Added md:leading-[1.2] and lg:leading-[1.2] to explicitly override the line-height: 1 
-              that comes with md:text-6xl and lg:text-7xl in Tailwind.
-          */}
-          <h1 className="font-serif text-4xl md:text-6xl lg:text-[3.8rem] text-elleo-dark leading-[1.2] md:leading-[1.2] lg:leading-[1.2] mb-4 md:mb-6 tracking-tighter">
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, ease: "easeOut" }}
-              className="block"
-            >
-              For a better tomorrow
-            </motion.span>
-            <motion.span
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
-              className="block"
-            >
-              a <span className="italic text-elleo-light">healthier</span> change
-            </motion.span>
-          </h1>
-          {/* Updated max-width to 50rem (max-w-[50rem]) as requested */}
-          {/* Updated line-height to 2rem (leading-[2rem]) and forced it with md:leading-[2rem] to override md:text-xl default */}
-          <p className="text-[1rem] md:text-[1.2rem] lg:text-[1.2rem] text-elleo-dark/70 font-sans leading-[1.5rem] md:leading-[2rem] max-w-[50rem] mx-auto lg:mx-0 mb-10">
-            Our vision is to provide our customers with a healthier choice by offering distinctive nutritious food prepared with premium quality ingredients
-          </p>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start items-center lg:items-start mb-14 lg:mb-0">
-            <a href="#brands" className="px-8 py-4 bg-elleo-dark text-white rounded-full font-sans font-bold text-[14px] tracking-wide hover:bg-elleo-light transition-colors duration-300 w-auto inline-block">
-              View Brands
-            </a>
-          </div>
-        </motion.div>
+      <div className="absolute inset-0 z-0 bg-black">
+        <AnimatePresence mode="popLayout">
+          {images.length > 0 && (
+            <motion.img
+              key={currentImageIndex + images[currentImageIndex]} // Combine index and src to ensure key changes
+              src={images[currentImageIndex]}
+              alt="Premium F&B Background"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 1.5, ease: "easeInOut" }}
+              className="absolute inset-0 w-full h-full object-cover scale-105"
+            />
+          )}
+        </AnimatePresence>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 w-full flex justify-center hidden md:flex pointer-events-none">
+      {/* 
+        Global Overlays (Top Gradient & Center Darkening)
+        Ensures perfect text readability over the vivid photos.
+      */}
+      <div className="absolute inset-0 z-10 pointer-events-none">
+        {/* Global darkening overlay to ensure center text is readable */}
+        <div className="absolute inset-0 bg-black/40" />
+
+        {/* Top gradient darker than #273851 (Elleo Dark) for top navbar area */}
+        <div className="absolute top-0 left-0 right-0 h-64 bg-gradient-to-b from-[#101826] to-transparent opacity-90" />
+
+        {/* Bottom gradient to help anchor the bottom text */}
+        <div className="absolute bottom-0 left-0 right-0 h-48 bg-gradient-to-t from-black/60 to-transparent" />
+      </div>
+
+      {/* Bottom Content Row (Left: Text, Right: Scroll Down) */}
+      {/* Container padding exactly matches NavBar padding (pl-6 pr-3 md:px-6) */}
+      <div className="relative z-20 w-full container mx-auto pl-6 pr-3 md:px-6 flex flex-row items-end justify-between">
+
+        {/* Left Side: Main Text */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+          className="text-left"
+        >
+          {/* Reduced font size, left aligned, enhanced drop-shadow, guaranteed line-height via inline style */}
+          {/* Using separate blocks for each line to have pixel-perfect gap control via margins */}
+          <h1 className="font-serif text-2xl md:text-3xl lg:text-5xl text-white tracking-tight max-w-[800px] drop-shadow-2xl">
+            <div className="leading-tight">Stay for the experience</div>
+            <div className="italic text-elleo-light leading-tight mt-3 md:mt-0">
+              Grab the goodness
+            </div>
+          </h1>
+        </motion.div>
+
+        {/* Right Side: Animated Scroll Indicator */}
         <motion.div
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
-          transition={{ delay: 2 }}
-          className="animate-bounce"
+          transition={{ duration: 1, delay: 0.8 }}
+          className="hidden md:flex flex-col items-center gap-3 text-white mb-0"
         >
-          <span className="text-elleo-dark font-sans font-bold text-[0.7rem] tracking-widest uppercase">Scroll to explore</span>
+          {/* Vertical Track (above the text) */}
+          <div className="w-[1px] h-12 bg-white/30 relative overflow-hidden">
+            {/* Animated dropping line */}
+            <motion.div
+              animate={{ y: ["-100%", "100%"] }}
+              transition={{ repeat: Infinity, duration: 1.5, ease: "linear" }}
+              className="absolute top-0 left-0 w-full h-1/2 bg-[#a09fe2]"
+            />
+          </div>
+          {/* SCROLL Text sits at the very bottom, perfectly aligned with the main text's bottom */}
+          <span className="font-sans text-[11px] tracking-[0.2em] font-medium uppercase text-[#a09fe2] leading-none">
+            Scroll
+          </span>
         </motion.div>
+
       </div>
+
+      {/* Decorative subtle grain over everything for premium texture */}
+      <div className="absolute inset-0 opacity-[0.03] z-30 pointer-events-none" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E")' }} />
+
     </section>
   );
 };
