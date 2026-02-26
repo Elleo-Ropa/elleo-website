@@ -3,26 +3,7 @@ import { MISSION_STEPS } from '../constants';
 import { motion } from 'framer-motion';
 import { History, Users } from 'lucide-react';
 
-const AnimatedIcon = ({ icon: Icon, color }: { icon: any; color: string }) => (
-  <motion.div
-    animate={{
-      y: [0, -5, 0],
-      scale: [1, 1.05, 1],
-    }}
-    transition={{
-      duration: 4,
-      repeat: Infinity,
-      ease: "easeInOut"
-    }}
-    className="hidden md:flex items-center justify-center shrink-0 mt-2"
-    style={{ color }}
-  >
-    <Icon size={32} strokeWidth={1.5} />
-  </motion.div>
-);
-
 const VisionMission: React.FC = () => {
-  const icons = [History, Users];
 
   return (
     // Updated padding-top to pt-40 (10rem) as requested
@@ -64,8 +45,7 @@ const VisionMission: React.FC = () => {
                 transition={{ duration: 0.8 }}
               >
                 <h2 className="font-serif text-4xl md:text-6xl lg:text-[3.5rem] text-elleo-dark leading-[1.1] md:leading-[1.1] lg:leading-[1.1] mb-[1rem] tracking-tighter">
-                  Make our customers' <br />
-                  <span className="italic text-elleo-light">healthier</span> choice
+                  Make our customers' <span className="italic text-elleo-light">healthier</span> choice
                 </h2>
               </motion.div>
             </div>
@@ -80,24 +60,22 @@ const VisionMission: React.FC = () => {
                   transition={{ delay: index * 0.2, duration: 0.6 }}
                   viewport={{ once: true }}
                   whileHover={{ scale: 1.01 }}
-                  className="bg-white/80 backdrop-blur-md rounded-3xl p-6 md:p-10 border border-white/50 shadow-xl shadow-purple-900/5 group flex flex-col md:flex-row items-start gap-6"
+                  className="bg-white/80 backdrop-blur-md rounded-3xl p-8 md:p-12 border border-white/50 shadow-xl shadow-purple-900/5 group flex flex-col items-start"
                 >
-                  <AnimatedIcon icon={icons[index]} color="#a09fe2" />
-
-                  <div className="flex-grow">
+                  <div className="flex-grow w-full">
                     {/* Title Tag with Rounded Purple Background */}
-                    <div className="flex justify-between items-center mb-6">
+                    <div className="flex justify-between items-center mb-8">
                       <span className="font-sans font-bold text-[0.6rem] md:text-xs tracking-widest text-white bg-elleo-light px-5 py-2 rounded-full uppercase">
                         {step.title}
                       </span>
                     </div>
 
                     {/* Updated font size and weight */}
-                    <h5 className="font-serif text-xl md:text-2xl font-semibold text-elleo-dark mb-4 leading-tight">
+                    <h5 className="font-serif text-xl md:text-3xl font-semibold text-elleo-dark mb-6 leading-tight">
                       {step.subtitle}
                     </h5>
 
-                    <p className="font-sans text-elleo-dark/80 text-[0.95rem] md:text-[1rem] leading-relaxed">
+                    <p className="font-sans text-elleo-dark/80 text-[1rem] md:text-[1.1rem] leading-relaxed">
                       {step.text}
                     </p>
                   </div>
