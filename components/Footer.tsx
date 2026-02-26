@@ -64,7 +64,7 @@ const Footer: React.FC = () => {
                       <div className="p-1.5 rounded-full group-hover:bg-elleo-light group-hover:border-elleo-light transition-all duration-300">
                         <Mail size={18} className="text-elleo-light group-hover:text-white" />
                       </div>
-                      <a href="mailto:info@elleo.com.au" className="md:text-[1rem] hover:text-elleo-light transition-colors">info@elleo.com.au</a>
+                      <a href="mailto:admin@elleo.com.au" className="md:text-[1rem] hover:text-elleo-light transition-colors">admin@elleo.com.au</a>
                     </div>
                   </div>
                 </div>

@@ -18,7 +18,7 @@ const Contact: React.FC = () => {
             <p className="font-sans text-gray-500 font-medium">We'd love to hear from you. Send us a message.</p>
           </div>
 
-          <form action="https://formsubmit.co/info@elleo.com.au" method="POST">
+          <form action="https://formsubmit.co/admin@elleo.com.au" method="POST">
             {/* FormSubmit Configuration */}
             <input type="hidden" name="_subject" value="New Contact Form Submission - Elleo Group" />
             <input type="hidden" name="_template" value="table" />
