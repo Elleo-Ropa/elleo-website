@@ -75,11 +75,11 @@ export const MISSION_STEPS = [
   {
     title: "OUR HISTORY",
     subtitle: "A journey of consistent growth since 2010",
-    text: "Since 2010, Elleo Group has grown steadily, setting new standards in Australia's Japanese food industry. We continue to expand sustainably, guided by quality, systems, and our people."
+    text: "Since 2010, Elleo Group has continued to grow consistently, setting new benchmarks within Australia’s F&B sector. We remain committed to sustainable expansion driven by uncompromising quality, operational excellence and the continuous development of our people."
   },
   {
     title: "LEADERSHIP",
     subtitle: "Where culinary expertise meets business excellence",
-    text: "Led by industry experts, we fuse hospitality with sustainable management. We deliver fine-dining quality Japanese cuisine in an accessible takeaway format, redefining the daily sushi experience."
+    text: "Led by industry experts, we blend hospitality with sustainable management to create a refined yet efficient operating model. We deliver fine-dining–quality Japanese cuisine in a convenient, accessible format—reshaping the everyday sushi experience."
   }
 ];

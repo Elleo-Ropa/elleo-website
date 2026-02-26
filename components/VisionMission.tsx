@@ -53,72 +53,57 @@ const VisionMission: React.FC = () => {
             style={{ background: '#b99c48' }}
           />
 
-          <div className="relative z-10 w-full py-20 pb-14 md:pb-20 px-6 md:px-16 lg:px-[60px] flex flex-col lg:flex-row gap-0 items-center">
+          <div className="relative z-10 w-full py-20 pb-14 md:pb-20 px-6 md:px-16 lg:px-[60px] flex flex-col items-center">
 
-            {/* Left Column: Heading & Intro */}
-            <div className="lg:w-1/2 mb-12 lg:mb-0 text-center lg:text-left">
+            {/* Top: Heading (Centered) */}
+            <div className="w-full mb-16 text-center">
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
               >
-                {/* Vision Tag removed previously */}
-
-                {/* Main Heading - Sentence case */}
                 <h2 className="font-serif text-4xl md:text-6xl lg:text-[3.5rem] text-elleo-dark leading-[1.1] md:leading-[1.1] lg:leading-[1.1] mb-[1rem] tracking-tighter">
                   Make our customers' <br />
                   <span className="italic text-elleo-light">healthier</span> choice
                 </h2>
-
-                {/* Mission Section - Styled like Vision/History, removed side border */}
-                <div className="relative">
-                  {/* Mission Tag removed as requested */}
-
-                  {/* Sentence case, forced 2 lines, max width increased to 50rem */}
-                  <p className="font-sans text-[1rem] md:text-[1.1rem] text-elleo-dark/80 leading-relaxed max-w-[50rem] mx-auto lg:mx-0">
-                    To be number 1 destination for quick sushi experience <br className="hidden md:block" />
-                    by providing the most fresh and tasty sushi products on time.
-                  </p>
-                </div>
               </motion.div>
             </div>
 
-            {/* Right Column: Cards */}
-            <div className="lg:w-1/2 w-full space-y-6">
+            {/* Bottom: Cards (Grid) */}
+            <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-8">
               {MISSION_STEPS.map((step, index) => (
                 <motion.div
                   key={index}
-                  initial={{ opacity: 0, x: 50 }}
-                  whileInView={{ opacity: 1, x: 0 }}
+                  initial={{ opacity: 0, y: 30 }}
+                  whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: index * 0.2, duration: 0.6 }}
                   viewport={{ once: true }}
-                  whileHover={{ scale: 1.02 }}
-                  className="bg-white/80 backdrop-blur-md rounded-3xl p-6 md:p-8 border border-white/50 shadow-xl shadow-purple-900/5 group flex items-start gap-6"
+                  whileHover={{ scale: 1.01 }}
+                  className="bg-white/80 backdrop-blur-md rounded-3xl p-6 md:p-10 border border-white/50 shadow-xl shadow-purple-900/5 group flex flex-col md:flex-row items-start gap-6"
                 >
                   <AnimatedIcon icon={icons[index]} color="#a09fe2" />
 
                   <div className="flex-grow">
                     {/* Title Tag with Rounded Purple Background */}
-                    <div className="flex justify-between items-center mb-4">
-                      <span className="font-sans font-bold text-[0.6rem] md:text-xs tracking-widest text-white bg-elleo-light px-4 py-1.5 rounded-full uppercase">
+                    <div className="flex justify-between items-center mb-6">
+                      <span className="font-sans font-bold text-[0.6rem] md:text-xs tracking-widest text-white bg-elleo-light px-5 py-2 rounded-full uppercase">
                         {step.title}
                       </span>
                     </div>
 
-                    {/* Updated font size to 1.3rem and weight to semi-bold (600) */}
-                    <h5 className="font-serif text-[1.1rem] font-semibold text-elleo-dark mb-3 leading-tight">
+                    {/* Updated font size and weight */}
+                    <h5 className="font-serif text-xl md:text-2xl font-semibold text-elleo-dark mb-4 leading-tight">
                       {step.subtitle}
                     </h5>
 
-                    <p className="font-sans text-elleo-dark/80 text-sm md:text-[0.9rem] leading-relaxed">
+                    <p className="font-sans text-elleo-dark/80 text-[0.95rem] md:text-[1rem] leading-relaxed">
                       {step.text}
                     </p>
                   </div>
                 </motion.div>
               ))}
             </div>
-
           </div>
         </div>
       </div>
