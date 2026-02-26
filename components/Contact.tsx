@@ -18,13 +18,19 @@ const Contact: React.FC = () => {
             <p className="font-sans text-gray-500 font-medium">We'd love to hear from you. Send us a message.</p>
           </div>
 
-          <form>
+          <form action="https://formsubmit.co/info@elleo.com.au" method="POST">
+            {/* FormSubmit Configuration */}
+            <input type="hidden" name="_subject" value="New Contact Form Submission - Elleo Group" />
+            <input type="hidden" name="_template" value="table" />
+            <input type="hidden" name="_next" value="https://elleo-website.vercel.app/" />
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div className="space-y-2 group">
                 <label className="font-sans text-xs font-bold text-elleo-dark/100 uppercase tracking-widest pl-1">Name</label>
-                {/* Rounded-2xl changed to rounded-lg */}
                 <input
                   type="text"
+                  name="name"
+                  required
                   className="w-full bg-white/50 border border-gray-200 rounded-lg px-6 py-3 focus:outline-none focus:ring-2 focus:ring-elleo-light/50 focus:border-elleo-light transition-all text-elleo-dark placeholder-gray-400"
                   placeholder="Your Name"
                   onKeyDown={(e) => {
@@ -45,6 +51,8 @@ const Contact: React.FC = () => {
                 <label className="font-sans text-xs font-bold text-elleo-dark/100 uppercase tracking-widest pl-1">Email</label>
                 <input
                   type="email"
+                  name="email"
+                  required
                   className="w-full bg-white/50 border border-gray-200 rounded-lg px-6 py-3 focus:outline-none focus:ring-2 focus:ring-elleo-light/50 focus:border-elleo-light transition-all text-elleo-dark placeholder-gray-400"
                   placeholder="your@email.com"
                   onKeyDown={(e) => {
@@ -68,6 +76,7 @@ const Contact: React.FC = () => {
                 <label className="font-sans text-xs font-bold text-elleo-dark/100 uppercase tracking-widest pl-1">Phone</label>
                 <input
                   type="tel"
+                  name="phone"
                   className="w-full bg-white/50 border border-gray-200 rounded-lg px-6 py-3 focus:outline-none focus:ring-2 focus:ring-elleo-light/50 focus:border-elleo-light transition-all text-elleo-dark placeholder-gray-400"
                   placeholder="Phone Number"
                   onKeyDown={(e) => {
@@ -88,6 +97,7 @@ const Contact: React.FC = () => {
                 <label className="font-sans text-xs font-bold text-elleo-dark/100 uppercase tracking-widest pl-1">Subject</label>
                 <input
                   type="text"
+                  name="subject"
                   className="w-full bg-white/50 border border-gray-200 rounded-lg px-6 py-3 focus:outline-none focus:ring-2 focus:ring-elleo-light/50 focus:border-elleo-light transition-all text-elleo-dark placeholder-gray-400"
                   placeholder="Inquiry Subject"
                   onKeyDown={(e) => {
@@ -109,6 +119,8 @@ const Contact: React.FC = () => {
             <div className="space-y-2 group">
               <label className="font-sans text-xs font-bold text-elleo-dark/100 uppercase tracking-widest pl-1">Message</label>
               <textarea
+                name="message"
+                required
                 rows={5}
                 className="w-full bg-white/50 border border-gray-200 rounded-lg px-6 py-3 focus:outline-none focus:ring-2 focus:ring-elleo-light/50 focus:border-elleo-light transition-all text-elleo-dark placeholder-gray-400 resize-y"
                 placeholder="How can we help you?"
@@ -117,8 +129,7 @@ const Contact: React.FC = () => {
 
             {/* Button container with increased margin-top (mt-16 = 64px) to ensure visibility */}
             <div className="flex justify-center mt-14">
-              {/* Button padding adjusted to px-8 py-4 (approx 2rem x 1rem) as requested */}
-              <button className="group relative inline-flex items-center gap-3 px-8 py-4 bg-elleo-light text-white rounded-full font-sans font-bold text-[15px] uppercase tracking-widest hover:bg-elleo-dark hover:shadow-lg hover:shadow-elleo-light/30 transition-all duration-300 transform hover:-translate-y-1">
+              <button type="submit" className="group relative inline-flex items-center gap-3 px-8 py-4 bg-elleo-light text-white rounded-full font-sans font-bold text-[15px] uppercase tracking-widest hover:bg-elleo-dark hover:shadow-lg hover:shadow-elleo-light/30 transition-all duration-300 transform hover:-translate-y-1">
                 <span>Send Message</span>
               </button>
             </div>
