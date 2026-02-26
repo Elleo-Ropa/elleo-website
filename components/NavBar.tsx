@@ -43,7 +43,7 @@ const NavBar: React.FC = () => {
         initial={{ y: -100 }}
         animate={{ y: 0 }}
         transition={{ duration: 0.6, ease: "circOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? 'bg-white/70 backdrop-blur-md py-2 md:py-4 shadow-lg' : 'bg-transparent py-6'
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled || !isHome ? 'bg-white/70 backdrop-blur-md py-2 md:py-4 shadow-lg' : 'bg-transparent py-6'
           }`}
       >
         <div className="container mx-auto  pl-6 pr-3 md:px-6 flex justify-between items-center">
@@ -59,7 +59,7 @@ const NavBar: React.FC = () => {
               }}
             >
               <img
-                src={isScrolled ? LOGO_LIGHT : LOGO_DARK}
+                src={isScrolled || !isHome ? LOGO_LIGHT : LOGO_DARK}
                 alt="Elleo Group"
                 className="w-full h-auto transition-opacity duration-300"
               />
@@ -79,7 +79,7 @@ const NavBar: React.FC = () => {
                       window.location.href = '/#contact';
                     }
                   }}
-                  className={`hover:text-elleo-light transition-colors duration-300 cursor-pointer bg-transparent border-none p-0 font-medium font-sans text-[15px] ${isScrolled ? 'text-elleo-dark' : 'text-white'}`}
+                  className={`hover:text-elleo-light transition-colors duration-300 cursor-pointer bg-transparent border-none p-0 font-medium font-sans text-[15px] ${isScrolled || !isHome ? 'text-elleo-dark' : 'text-white'}`}
                 >
                   {item}
                 </button>
@@ -87,7 +87,7 @@ const NavBar: React.FC = () => {
                 <a
                   key={item}
                   href={getLinkHref(item)}
-                  className={`hover:text-elleo-light transition-colors duration-300 ${isScrolled ? 'text-elleo-dark' : 'text-white'}`}
+                  className={`hover:text-elleo-light transition-colors duration-300 ${isScrolled || !isHome ? 'text-elleo-dark' : 'text-white'}`}
                 >
                   {item}
                 </a>
@@ -95,7 +95,7 @@ const NavBar: React.FC = () => {
             ))}
             <a
               href={isHome ? "#contact" : "/#contact"}
-              className={`px-6 py-2 rounded-full transition-all duration-300 font-semibold ${isScrolled ? 'bg-elleo-light text-white hover:bg-elleo-dark' : 'bg-elleo-light text-white hover:bg-white hover:text-elleo-dark'}`}
+              className={`px-6 py-2 rounded-full transition-all duration-300 font-semibold ${isScrolled || !isHome ? 'bg-elleo-light text-white hover:bg-elleo-dark' : 'bg-elleo-light text-white hover:bg-white hover:text-elleo-dark'}`}
             >
               Get in Touch
             </a>
@@ -103,7 +103,7 @@ const NavBar: React.FC = () => {
 
           {/* Mobile Menu Button */}
           <button
-            className={`md:hidden z-50 p-2 ${isMenuOpen ? 'text-white' : (isScrolled ? 'text-elleo-dark' : 'text-white')} transition-colors duration-300`}
+            className={`md:hidden z-50 p-2 ${isMenuOpen ? 'text-white' : (isScrolled || !isHome ? 'text-elleo-dark' : 'text-white')} transition-colors duration-300`}
             onClick={() => setIsMenuOpen(!isMenuOpen)}
           >
             {isMenuOpen ? <X size={28} /> : <Menu size={28} />}
