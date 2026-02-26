@@ -45,7 +45,7 @@ const Hero: React.FC = () => {
   }, [images]);
 
   return (
-    <section className="relative w-full min-h-[100dvh] bg-black overflow-hidden flex flex-col justify-end pb-6 md:pb-10">
+    <section className="relative w-full min-h-[100vh] bg-black overflow-hidden flex flex-col justify-end pb-6 md:pb-10">
       {/* 
         The Background (Crossfading Slideshow) 
       */}
