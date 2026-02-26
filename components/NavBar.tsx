@@ -95,7 +95,7 @@ const NavBar: React.FC = () => {
             ))}
             <a
               href={isHome ? "#contact" : "/#contact"}
-              className={`px-6 py-2 rounded-full transition-all duration-300 font-semibold ${isScrolled ? 'bg-elleo-light text-white hover:bg-elleo-dark' : 'bg-elleo-light text-white hover:bg-white hover:text-elleo-light'}`}
+              className={`px-6 py-2 rounded-full transition-all duration-300 font-semibold ${isScrolled ? 'bg-elleo-light text-white hover:bg-elleo-dark' : 'bg-elleo-light text-white hover:bg-white hover:text-elleo-dark'}`}
             >
               Get in Touch
             </a>
@@ -152,7 +152,7 @@ const NavBar: React.FC = () => {
               <a
                 href={isHome ? "#contact" : "/#contact"}
                 onClick={() => setIsMenuOpen(false)}
-                className="bg-elleo-light text-white px-8 py-3 rounded-full font-sans font-bold text-xl hover:bg-white hover:text-elleo-light transition-colors"
+                className="bg-elleo-light text-white px-8 py-3 rounded-full font-sans font-bold text-xl hover:bg-white hover:text-elleo-dark transition-colors"
               >
                 Get in Touch
               </a>
