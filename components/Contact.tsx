@@ -55,6 +55,9 @@ const Contact: React.FC = () => {
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_template" value="table" />
 
+            {/* Honeypot field to prevent bot spam */}
+            <input type="text" name="_honeypot" style={{ display: 'none' }} />
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               <div className="space-y-2 group">
                 <label className="font-sans text-xs font-bold text-elleo-dark/100 uppercase tracking-widest pl-1">Name</label>
