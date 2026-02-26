@@ -51,7 +51,7 @@ const Contact: React.FC = () => {
           </div>
 
           <form onSubmit={handleSubmit}>
-            <input type="hidden" name="_subject" value="New Contact Form Submission - Elleo Group" />
+            <input type="hidden" name="_subject" value="[ELLEO GROUP] New Contact Form Submission" />
             <input type="hidden" name="_captcha" value="false" />
             <input type="hidden" name="_template" value="table" />
 
