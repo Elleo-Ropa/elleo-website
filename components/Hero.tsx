@@ -94,7 +94,7 @@ const Hero: React.FC = () => {
         >
           {/* Reduced font size, left aligned, enhanced drop-shadow, guaranteed line-height via inline style */}
           {/* Using separate blocks for each line to have pixel-perfect gap control via margins */}
-          <h1 className="font-serif text-2xl md:text-3xl lg:text-5xl text-white tracking-tight max-w-[800px] drop-shadow-2xl">
+          <h1 className="font-serif text-2xl md:text-3xl lg:text-[43px] text-white tracking-tight max-w-[800px] drop-shadow-2xl">
             <div className="leading-tight">Stay for the experience</div>
             <div className="italic text-elleo-light leading-tight mt-3 md:mt-0">
               Grab the goodness
