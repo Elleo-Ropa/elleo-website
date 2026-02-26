@@ -12,27 +12,6 @@ const VisionMission: React.FC = () => {
         {/* Main Background Card */}
         <div className="relative w-full rounded-[2rem] md:rounded-[3rem] overflow-hidden min-h-[700px] flex items-center bg-gradient-to-br from-white via-[#f5f3ff] to-[#ede9fe]">
 
-          {/* Animated Purple Blobs - Opacity reverted to subtle levels */}
-          <motion.div
-            animate={{
-              x: [0, 50, -30, 0],
-              y: [0, -40, 60, 0],
-              scale: [1, 1.2, 0.9, 1]
-            }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute top-[-10%] right-[-10%] w-[80%] h-[80%] rounded-full blur-[120px] opacity-30 pointer-events-none"
-            style={{ background: '#a09fe2' }}
-          />
-          <motion.div
-            animate={{
-              x: [0, -60, 40, 0],
-              y: [0, 50, -30, 0],
-              scale: [1, 0.8, 1.1, 1]
-            }}
-            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-            className="absolute bottom-[-10%] left-[-10%] w-[70%] h-[70%] rounded-full blur-[100px] opacity-20 pointer-events-none"
-            style={{ background: '#b99c48' }}
-          />
 
           <div className="relative z-10 w-full py-20 pb-14 md:pb-20 px-6 md:px-16 lg:px-[60px] flex flex-col items-center">
 
