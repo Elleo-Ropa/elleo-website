@@ -44,7 +44,7 @@ const VisionMission: React.FC = () => {
                 viewport={{ once: true }}
                 transition={{ duration: 0.8 }}
               >
-                <h2 className="font-serif text-4xl md:text-6xl lg:text-[3.5rem] text-elleo-dark leading-[1.1] md:leading-[1.1] lg:leading-[1.1] mb-[1rem] tracking-tighter">
+                <h2 className="font-serif text-4xl md:text-6xl lg:text-[2.6rem] text-elleo-dark leading-[1.1] md:leading-[1.1] lg:leading-[1.1] mb-[0rem] tracking-tighter">
                   Make our customers' <span className="italic text-elleo-light">healthier</span> choice
                 </h2>
               </motion.div>
@@ -71,7 +71,7 @@ const VisionMission: React.FC = () => {
                     </div>
 
                     {/* Updated font size and weight */}
-                    <h5 className="font-serif text-xl md:text-3xl font-semibold text-elleo-dark mb-6 leading-tight">
+                    <h5 className="font-serif text-xl md:text-[25px] font-semibold text-elleo-dark mb-6 leading-tight">
                       {step.subtitle}
                     </h5>
 
