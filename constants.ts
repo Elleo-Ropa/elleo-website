@@ -7,7 +7,7 @@ export const SYMBOL = "https://www.sushia.com.au/wp-content/uploads/2026/01/Elle
 export const STATS: Stat[] = [
   { label: "Total Branches", value: "51", subtext: "Across Australia" },
   { label: "Monthly Visitors", value: "500K", subtext: "Satisfied Customers" },
-  { label: "Employees", value: "430", subtext: "Dedicated Staff" },
+  { label: "Employees", value: "500", subtext: "Dedicated Staff" },
   { label: "Established", value: "2010", subtext: "Growing Steadily" },
 ];
 
