@@ -45,7 +45,7 @@ const Hero: React.FC = () => {
   }, [images]);
 
   return (
-    <section className="relative w-full min-h-[100vh] bg-black overflow-hidden flex flex-col justify-end pb-36 md:pb-[33vh] lg:pb-16">
+    <section className="relative w-full min-h-[100vh] bg-black overflow-hidden flex flex-col justify-end pb-[15rem] md:pb-[20rem] lg:pb-16">
       {/* 
         The Background (Crossfading Slideshow) 
       */}
@@ -94,7 +94,7 @@ const Hero: React.FC = () => {
         >
           {/* Reduced font size, left aligned, enhanced drop-shadow, guaranteed line-height via inline style */}
           {/* Using separate blocks for each line to have pixel-perfect gap control via margins */}
-          <h1 className="font-serif text-2xl md:text-[20px] lg:text-[43px] text-white tracking-tight max-w-[800px] drop-shadow-2xl">
+          <h1 className="font-serif text-2xl md:text-2xl lg:text-[43px] text-white tracking-tight max-w-[800px] drop-shadow-2xl">
             <div className="leading-tight">Stay for the experience</div>
             <div className="italic text-elleo-light leading-[1.3] mt-1 md:mt-0">
               Grab the goodness
