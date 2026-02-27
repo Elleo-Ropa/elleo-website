@@ -45,7 +45,7 @@ const Hero: React.FC = () => {
   }, [images]);
 
   return (
-    <section className="relative w-full min-h-[100vh] bg-black overflow-hidden flex flex-col justify-end pb-6 md:pb-10">
+    <section className="relative w-full min-h-[100vh] bg-black overflow-hidden flex flex-col justify-end pb-16 md:pb-10">
       {/* 
         The Background (Crossfading Slideshow) 
       */}
@@ -96,7 +96,7 @@ const Hero: React.FC = () => {
           {/* Using separate blocks for each line to have pixel-perfect gap control via margins */}
           <h1 className="font-serif text-2xl md:text-3xl lg:text-[43px] text-white tracking-tight max-w-[800px] drop-shadow-2xl">
             <div className="leading-tight">Stay for the experience</div>
-            <div className="italic text-elleo-light leading-1 mt-3 md:mt-0">
+            <div className="italic text-elleo-light leading-[1.3] mt-1 md:mt-0">
               Grab the goodness
             </div>
           </h1>
